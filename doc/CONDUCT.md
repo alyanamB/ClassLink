@@ -1,29 +1,41 @@
 # Contributor Covenant Code of Conduct
 
 ## 305Soft policy
+
 During all team meetings there will be no distracted use of technology (e.g. phones
 away). 
 
 ## Decisions
+
 Majority vote with additional randomize measure for split vote.
 
 ## Attendance
+
 Expectation is to be at class everyday. If member is absent they are responsible for notifying the team. The team will provide a summary of what was discussed, accomplished and deligated in the day as well as open the discussion of what is needed from the absent team member. 
 
 ## Assignments
+
 The Scrum Master will ensure tasks are distributed as evenly as possible, focusing on balance and efficiency. However, the team will collectively decide task assignments through discussion, ensuring that each member takes on a suitable workload. This collaborative approach fosters transparency and allows for adjustments based on indvidual strengths and availability. 
 
 ## Participation
+
 Our primary commmunication platform will be Discord, while GitHub will be used for updating and committing technical changes. During task delegation we will individually rank our task preferences and review them with the team to facilitate fair and effective assignments, ensuring full participation from all team members. 
 
-# Meeting Times and Location/Mediums
-classes, review on fridays online or inperson. 
+## Meeting Times and Location/Mediums
+
+Team meetings will primarily be held in class with an additional meeting or check in on Fridays held online over discord.
+
 ## Agenda and Minutes?Notes
-chat channel where we can write into it each week as a collective group. 
+
+A dedicated chat channel will be used for collaboratively recording and sharing meeting notes each week.
 
 ## Promptness
 
+Team members are expected to be on time for meetings. If someone is late, they can briefly catch up and use the meeting summary channel where key details will be documented.
+
 ## Enforcement/Feedback
+
+Team rules will be reinforced through open communication. Feedback will be given and recieved in a constructive and respectful manner, aligning with individual preferences.
 
 ## Our Pledge
 
