@@ -5,16 +5,21 @@ During all team meetings there will be no distracted use of technology (e.g. pho
 away). 
 
 ## Decisions
-
+Majority vote with additional randomize measure for split vote.
 ## Attendance
-
+Expectation is to be at class everyday. If member is absent they are responsible for messaging group. Group will provide summary of what was done in the day and what is needed of member. 
 ## Assignments
+Open communication, 
+decide who feels comfortable and confident with what. scrum leader makes sure tasks are evenly distrubuted. wrok done by friday for review, let team know if ur struggling behind, any incomplete tasks review with team and decide best decision, 
+review on friday
 
 ## Participation
-
+discord main communcation, github, during deligatinng tasks we will discuss how everyone can fully participate,
+in discuss we personally rank task interest and review with team. 
 # Meeting Times and Location/Mediums
-
+classes, review on fridays online or inperson. 
 ## Agenda and Minutes?Notes
+chat channel where we can write into it each week as a collective group. 
 
 ## Promptness
 
