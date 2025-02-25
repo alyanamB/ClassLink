@@ -155,3 +155,11 @@ For answers to common questions about this code of conduct, see the FAQ at
 [Mozilla CoC]: https://github.com/mozilla/diversity
 [FAQ]: https://www.contributor-covenant.org/faq
 [translations]: https://www.contributor-covenant.org/translations
+
+## Signatures 
+
+- Kai: https://drive.google.com/drive/folders/1QqQt0WCPL1Ea8_1vvG6cttsEMgHmsnQ5?usp=sharing
+- 
+-  
+- 
+
