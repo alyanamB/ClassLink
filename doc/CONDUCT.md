@@ -6,16 +6,16 @@ away).
 
 ## Decisions
 Majority vote with additional randomize measure for split vote.
+
 ## Attendance
-Expectation is to be at class everyday. If member is absent they are responsible for notifying the team. The team will provide summary of what was discussed, accomplished and deligated in the day and open the discussion of what is needed from the absent team member. 
+Expectation is to be at class everyday. If member is absent they are responsible for notifying the team. The team will provide a summary of what was discussed, accomplished and deligated in the day as well as open the discussion of what is needed from the absent team member. 
+
 ## Assignments
-Open communication, 
-decide who feels comfortable and confident with what. scrum leader makes sure tasks are evenly distrubuted. wrok done by friday for review, let team know if ur struggling behind, any incomplete tasks review with team and decide best decision, 
-review on friday
+The Scrum Master will ensure tasks are distributed as evenly as possible, focusing on balance and efficiency. However, the team will collectively decide task assignments through discussion, ensuring that each member takes on a suitable workload. This collaborative approach fosters transparency and allows for adjustments based on indvidual strengths and availability. 
 
 ## Participation
-discord main communcation, github, during deligatinng tasks we will discuss how everyone can fully participate,
-in discuss we personally rank task interest and review with team. 
+Our primary commmunication platform will be Discord, while GitHub will be used for updating and committing technical changes. During task delegation we will individually rank our task preferences and review them with the team to facilitate fair and effective assignments, ensuring full participation from all team members. 
+
 # Meeting Times and Location/Mediums
 classes, review on fridays online or inperson. 
 ## Agenda and Minutes?Notes
