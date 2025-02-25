@@ -7,7 +7,7 @@ away).
 ## Decisions
 Majority vote with additional randomize measure for split vote.
 ## Attendance
-Expectation is to be at class everyday. If member is absent they are responsible for messaging group. Group will provide summary of what was done in the day and what is needed of member. 
+Expectation is to be at class everyday. If member is absent they are responsible for notifying the team. The team will provide summary of what was discussed, accomplished and deligated in the day and open the discussion of what is needed from the absent team member. 
 ## Assignments
 Open communication, 
 decide who feels comfortable and confident with what. scrum leader makes sure tasks are evenly distrubuted. wrok done by friday for review, let team know if ur struggling behind, any incomplete tasks review with team and decide best decision, 
