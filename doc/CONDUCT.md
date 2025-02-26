@@ -25,7 +25,7 @@ Our primary commmunication platform will be Discord, while GitHub will be used f
 
 Team meetings will primarily be held in class with an additional meeting or check in on Fridays held online over discord.
 
-## Agenda and Minutes?Notes
+## Agenda and Minutes/Notes
 
 A dedicated chat channel will be used for collaboratively recording and sharing meeting notes each week.
 
