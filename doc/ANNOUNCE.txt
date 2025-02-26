@@ -1,2 +1,1 @@
-### Label
-A personalized academic networking app that bridges the gap between tutoring, class-specific knowledge sharing, and collaborative study groups. Designed to match students with the right learning resources, peer support, and study sessions based on their learning style, schedule, and university curriculum.
+A personalized academic closed network, networking app that bridges the gap between tutoring, class-specific knowledge sharing, and collaborative study groups. Designed to match students with the right learning resources, peer support, and study sessions based on their learning style, schedule, and university curriculum.
