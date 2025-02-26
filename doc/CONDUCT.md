@@ -172,6 +172,6 @@ For answers to common questions about this code of conduct, see the FAQ at
 
 - Kai: https://drive.google.com/drive/folders/1QqQt0WCPL1Ea8_1vvG6cttsEMgHmsnQ5?usp=sharing
 - Alyana: https://drive.google.com/file/d/1y3efAj22Y_qO1CDMMKZaImWQZ7bBuF_V/view?usp=sharing
--  
+- Emmanuel : https://docs.google.com/document/d/1uA12EsD3HKSuOS-PijDPdtRoo43OHxPNJQfhuxflicU/edit?usp=sharing 
 - 
 
