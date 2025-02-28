@@ -29,7 +29,7 @@ ClassLink is a university-exclusive academic networking app that connects studen
 ```
 
 ## 📜 Code of Conduct
-All contributors must adhere to the [Code of Conduct](docs/CONDUCT.md) to ensure a positive and inclusive environment.
+All contributors must adhere to the [Code of Conduct](doc/CONDUCT.md) to ensure a positive and inclusive environment.
 
 ## 📌 Business Model
 View our Lean Canvas Business Model: [Business Plan](docs/BUSINESSPLAN.md)
