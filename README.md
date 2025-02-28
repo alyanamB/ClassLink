@@ -35,7 +35,7 @@ All contributors must adhere to the [Code of Conduct](doc/CONDUCT.md) to ensure 
 View our Lean Canvas Business Model: [Business Plan](doc/BUSINESSPLAN.md)
 
 ## 🎯 User Research
-Findings from our user research are documented here: [User Research](docs/UserResearch.md)
+Findings from our user research are documented here: [User Research](doc/UserResearch.md)
 
 ## 🔄 Project Setup
 1. Clone the repository:
