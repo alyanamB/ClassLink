@@ -14,6 +14,6 @@
   - Team Action (if any): Making it accessible and an easy user interface to connect with others to create one on one in person sessions.
     
 - Observation 4:
-  - Observation Statement:
-  - Supporting Data:
-  - Team Action (if any):
+  - Observation Statement: Half of users stated one of the main barriers preventing them from seeking tutoring was concern over cost.
+  - Supporting Data: 19/39 of all participants surveyed 
+  - Team Action (if any): Include easy to view cost/pricing in each tutor profile. 
