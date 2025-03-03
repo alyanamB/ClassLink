@@ -9,9 +9,9 @@
   - Team Action (if any):
  
 - Observation 3:
-  - Observation Statement:
-  - Supporting Data:
-  - Team Action (if any):
+  - Observation Statement: Most survey participants find learning/studying most effective through one on one in person session.
+  - Supporting Data: 84.2% of all participants surveyed.
+  - Team Action (if any): Making it accessible and an easy user interface to connect with others to create one on one in person sessions.
     
 - Observation 4:
   - Observation Statement:
