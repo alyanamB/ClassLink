@@ -1,5 +1,5 @@
 # Metrics
-## Heart Framework
+## HEART Framework
 https://docs.google.com/presentation/d/1A-2E_baVCmCEYLlP3Qup2VT-anCOFMgUuk07oxL5DGY/edit?usp=sharing 
 ## Metrics
 **Metric 1-** NPS: We collect user recommendation ratings through an NPS-style question presented as a pop-up component asking, “How likely are you to recommend ClassLink?” using a five-star rating scale. This survey is triggered at the end of the Golden Path (on the main page). User responses are saved to the database in a dedicated ratings collection, linked to their user ID. Additionally, a custom event is logged in Firebase Analytics to track the number of surveys completed.  
