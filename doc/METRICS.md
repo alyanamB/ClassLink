@@ -10,7 +10,16 @@ https://docs.google.com/presentation/d/1A-2E_baVCmCEYLlP3Qup2VT-anCOFMgUuk07oxL5
 
 **Metric 4-** Retention: Tracked automatically through Firebase Analytics, showing how many users return to the app after their first visit. This helps us assess whether users are finding long-term value and returning for continued use. 
 
-**Metric 5-**  
+**Metric 5-** Clicked Study Session to View: Tracked automatically through Firebase Analytics, showing how many users click on an individual study session. This helps us assess whether users are interested in study sessions. 
 
-**Metric 6-**   
- 
+**Metric 6-** Clicked Attend Study Session to View: Tracked through Firebase Analytics by adding google analytic event in action flow of the button, showing how many users click to attend an individual study session. This helps us assess whether users are interested in attending study sessions. 
+
+**Metric 7-** Clicked Widraw in StudySession:  Tracked through Firebase Analytics by adding google analytic event in action flow of the button, showing how many users click on an individual study session. This helps us assess the number of users withdraw their attendance to a study sessions in relation to originally attending it. 
+
+**Metric 8-** Clicked Create Study Session:  Tracked through Firebase Analytics by adding google analytic event in action flow of the button showing how many users click on an individual study session. This helps us assess whether users are interested in hosting study sessions. 
+
+**Metric 9-** Clicked Create Study Session:  Tracked through Firebase Analytics by adding google analytic event in action flow of the button, showing how many users click on an individual study session. This helps us assess whether users are ACTUALLY hosting study sessions. 
+
+
+
+
