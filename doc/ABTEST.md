@@ -47,64 +47,28 @@ After login, users are automatically navigated to the Find Study Sessions tab. T
 Variation B (Test):
 After login, users are automatically navigated to the Find Tutors tab. No design changes are made aside from the initial landing screen. Users can still access the Study Sessions tab manually if they choose.  
 ___
-
-___
-**A/B Test Option 3**: 
-**US4**:   
-**Metric**:  
-**Hypothesis**: 
- We believe that the page users land on immediately after logging in—either Find Tutors or Find Study Sessions—subtly influences their behavior and intent. Currently, users are shown one default landing page after authentication, but this may unintentionally guide what they engage with first. We suspect that this initial view may act as a behavioral nudge, shaping what users perceive as the app’s core function or what’s most accessible to them at that moment. To test this, we will randomly assign 50% of users to land on the Find Study Sessions tab after login, while the other 50% will land on the Find Tutors tab. All other elements of the interface remain identical, ensuring that the only variable being tested is the default landing screen.The problem we’re addressing is a potential bottleneck in post-login engagement—a critical moment in the user journey. If users have a pre-existing intention (e.g., to join a session or message a tutor), the landing page may have little effect. However, if many users are simply exploring or open to either resource, we may be influencing behavior through layout alone. For instance, a user intending to find a tutor may instead click into a group session simply because it was the first thing they saw. By isolating this one variable—landing page after login—we aim to understand whether default placement meaningfully affects engagement, feature preference, or task completion. If the hypothesis is correct, we’ll observe a significant difference in user actions (session joins, tutor requests, or tab switches) between the two groups. This will help us determine whether our login flow should be user-tailored, randomized, or intentionally optimized to surface the most impactful feature first.
+**A/B Test Option 3**:   
+**US4**:     
+**Metric**:    
+**Hypothesis**:   
+ We
 **Experiment**:
-  We will run an A/B test using Firebase Remote Config to assign users randomly into two groups (50/50 split). Upon successful login, Group A (Control) will land on the Find Study Sessions tab, while Group B (Test) will land on the Find Tutors tab. All other elements of the app (layout, tabs, and functionality) will remain unchanged. This experiment isolates the impact of initial landing screen on user behavior. Since we’re testing a subtle UX influence, a 50/50 split allows us to capture behavior across both flows while ensuring balanced sample sizes given our early user base. To evaluate the impact, we will track user actions using Firebase Analytics. Key events include:
-   - clicked_study_tab
-   - clicked_tutors_tab
-   - session_card_click
-   - tutor_card_click
-   - joined_study_session
-   - requested_tutor
-   -  
-These events will be compared across groups to determine how initial exposure affects user decisions. Aligned with our HEART metrics (particularly Engagement, Adoption, and Task Success), we’ll specifically measure:
-
-   - Tab switching behavior (do users explore beyond what’s first shown?)
-   - Click-through rates for tutors vs. study sessions
-   - Actual conversion actions (joining sessions or requesting tutors)
-This will help us understand whether user preference is pre-determined or influenced by the first screen they see.
-
+  We 
 **Variations**:  
 Variation A (Control):
-After login, users are automatically navigated to the Find Study Sessions tab. This is the current behavior in the app and represents the standard flow. Users can still manually switch to the Tutors tab at any time.  
+
 
 Variation B (Test):
-After login, users are automatically navigated to the Find Tutors tab. No design changes are made aside from the initial landing screen. Users can still access the Study Sessions tab manually if they choose.  
 ___
-
-___
-**A/B Test Option 2**: Landing Page Influence: Find Tutors vs. Study Sessions  
-**US4**: Golden Path  
-**Metric**: Engagement, Adoption, Task Success, CTR  
-**Hypothesis**: 
- We believe that the page users land on immediately after logging in—either Find Tutors or Find Study Sessions—subtly influences their behavior and intent. Currently, users are shown one default landing page after authentication, but this may unintentionally guide what they engage with first. We suspect that this initial view may act as a behavioral nudge, shaping what users perceive as the app’s core function or what’s most accessible to them at that moment. To test this, we will randomly assign 50% of users to land on the Find Study Sessions tab after login, while the other 50% will land on the Find Tutors tab. All other elements of the interface remain identical, ensuring that the only variable being tested is the default landing screen.The problem we’re addressing is a potential bottleneck in post-login engagement—a critical moment in the user journey. If users have a pre-existing intention (e.g., to join a session or message a tutor), the landing page may have little effect. However, if many users are simply exploring or open to either resource, we may be influencing behavior through layout alone. For instance, a user intending to find a tutor may instead click into a group session simply because it was the first thing they saw. By isolating this one variable—landing page after login—we aim to understand whether default placement meaningfully affects engagement, feature preference, or task completion. If the hypothesis is correct, we’ll observe a significant difference in user actions (session joins, tutor requests, or tab switches) between the two groups. This will help us determine whether our login flow should be user-tailored, randomized, or intentionally optimized to surface the most impactful feature first.
+**A/B Test Option 4**:   
+**US4**:     
+**Metric**:    
+**Hypothesis**:   
+ We
 **Experiment**:
-  We will run an A/B test using Firebase Remote Config to assign users randomly into two groups (50/50 split). Upon successful login, Group A (Control) will land on the Find Study Sessions tab, while Group B (Test) will land on the Find Tutors tab. All other elements of the app (layout, tabs, and functionality) will remain unchanged. This experiment isolates the impact of initial landing screen on user behavior. Since we’re testing a subtle UX influence, a 50/50 split allows us to capture behavior across both flows while ensuring balanced sample sizes given our early user base. To evaluate the impact, we will track user actions using Firebase Analytics. Key events include:
-   - clicked_study_tab
-   - clicked_tutors_tab
-   - session_card_click
-   - tutor_card_click
-   - joined_study_session
-   - requested_tutor
-   -  
-These events will be compared across groups to determine how initial exposure affects user decisions. Aligned with our HEART metrics (particularly Engagement, Adoption, and Task Success), we’ll specifically measure:
-
-   - Tab switching behavior (do users explore beyond what’s first shown?)
-   - Click-through rates for tutors vs. study sessions
-   - Actual conversion actions (joining sessions or requesting tutors)
-This will help us understand whether user preference is pre-determined or influenced by the first screen they see.
-
+  We 
 **Variations**:  
 Variation A (Control):
-After login, users are automatically navigated to the Find Study Sessions tab. This is the current behavior in the app and represents the standard flow. Users can still manually switch to the Tutors tab at any time.  
 
-Variation B (Test):
-After login, users are automatically navigated to the Find Tutors tab. No design changes are made aside from the initial landing screen. Users can still access the Study Sessions tab manually if they choose.  
-___
 
+Variation B (Test): 
