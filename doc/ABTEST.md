@@ -48,17 +48,19 @@ Variation B (Test):
 After login, users are automatically navigated to the Find Tutors tab. No design changes are made aside from the initial landing screen. Users can still access the Study Sessions tab manually if they choose.  
 ___
 **A/B Test Option 3**:   
-**US4**:     
-**Metric**:    
-**Hypothesis**:   
- We
+**US4**: Golden Path     
+**Metric**:   Engagement, CTR 
+**Hypothesis**:  We hypothesise that there may be some users who although not initially, they may consider becoming tutors themselves after going through our application's experience. It may not be clear to them at first weather or not they would consider becoming a tutor but after seeing the simplicity and oppourtunity our application provides, they may reconsider. We are also aware that possibly even subconsiously, the way we present the option of becoming a tutor may have an effect on weather or not they decide to do so.  
+
 **Experiment**:
-  We 
+A simple way in which we could attempt to test this hypothesis is using remote config and A/B testing through Firebase. Specifically, we would change the font and color of the "interested in becoming a tutor?" checkbox. We would make this subtle change to exactly one half of our users and then we would compare to see weather or not one group has a significantly higher rate of users checking off that option. 
+
 **Variations**:  
 Variation A (Control):
-
+The UI in its current format remains the same with the same color scheme, layout, and font size. 
 
 Variation B (Test):
+The UI is adjusted, we would increase the font size, adjust the layout, and change the color and font of the text. 
 ___
 **A/B Test Option 4**: Tutor and Study Sessions Tab on top of screen or Combined with NavBar
 
