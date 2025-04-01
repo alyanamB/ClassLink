@@ -20,6 +20,10 @@ https://docs.google.com/presentation/d/1A-2E_baVCmCEYLlP3Qup2VT-anCOFMgUuk07oxL5
 
 **Metric 9-** Clicked Create Study Session:  Tracked through Firebase Analytics by adding google analytic event in action flow of the button, showing how many users click on an individual study session. This helps us assess whether users are ACTUALLY hosting study sessions. 
 
+**Metric 10-** SignUp Button CTR:  Tracking how many users are clicking the sign up button vs the login button through the Google Analytics Event on the CTR of the “SignUp Button” on the Login page. The image shows that between March 3rd to March 30th, 6 different clicks were made by different users.
+
+**Metric 11-** Study Sessions Attending Button CTR:  Tracking how many students are viewing which Study Sessions they are attending through the Google Analytics Event on the CTR of the “Study Sessions Attending Button” on the Profile Tab page. The first image shows that between March 3rd to March 30th, 4 different clicks were made by 3 different users. 
+
 
 
 
