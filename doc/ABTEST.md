@@ -61,12 +61,17 @@ Variation A (Control):
 Variation B (Test):
 ___
 **A/B Test Option 4**: Tutor and Study Sessions Tab on top of screen or Combined with NavBar
+
 **US4**: Golden Path 
+
 **Metric**: Engagement, CTR on tabs
+
 **Hypothesis**: 
  We hypthesize that this split navigation may overwhelm users, especially on mobile, making it harder to find key features or complete important actions. Our hypothesis is that by combining both navbars into a single, unified navigation bar, users will have a clearer, more intuitive experience that improves task completion, engagement, and feature discovery. We’ll A/B test this by comparing the current dual-nav design with a single-nav version and measure changes in click-through rates, time to task completion, and drop-off rates.
+
 **Experiment**:
   Using Firebase remote config we will spilt users into 50/50 groups. Group A will view the Tutors and Study Sessions Tab at the top of the screen, while Group B will see it combined with Profile NavBar with the following selections: Profile, Tutors, and Study Sessions. All other elements of the app (layout, tabs, and functionality) will remain unchanged. This split and single change will allow us to monitor intuitivity and user accessabilty using CTR events. We can compare the CTR of the separate Tabs between the two groups and also the time it takes a user to change tabs once they login. Users will not be able to view the experiment so as to provide accurate responses. 
+
 **Variations**:  
 Variation A (Control):
 After login, the user should be brought to a home page including a nav bar with Home and Profile tabs at the bottom, as well as a Tab Bar with Tutor and Study Session Tabs at the top of the screen.
