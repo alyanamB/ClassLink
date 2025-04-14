@@ -44,19 +44,16 @@ void main() async {
     await GoogleFonts.pendingFonts();
 
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
-    await tester.tap(find.byKey(const ValueKey('LogoutButton_aumg')));
+    await tester.tap(find.byKey(const ValueKey('ManageTutorButton_aumg')));
     await tester.pumpAndSettle(const Duration(milliseconds: 10000));
-    await tester.enterText(
-        find.byKey(const ValueKey('CourseTextField_enob')), 'CSC 212');
+    await tester.enterText(find.byKey(const ValueKey('UNDEFINED')), 'CSC 212');
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
-    await tester.enterText(
-        find.byKey(const ValueKey('descriptionTextField_15s7')),
+    await tester.enterText(find.byKey(const ValueKey('UNDEFINED')),
         'I can help you understand algorithms efficiently.');
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
-    await tester.enterText(
-        find.byKey(const ValueKey('RateTextField_ng69')), '10');
+    await tester.enterText(find.byKey(const ValueKey('UNDEFINED')), '10');
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
-    await tester.tap(find.byKey(const ValueKey('updateTutorButton_i9a5')));
+    await tester.tap(find.byKey(const ValueKey('UNDEFINED')));
     await tester.pumpAndSettle(const Duration(milliseconds: 10000));
     expect(find.byKey(const ValueKey('LogoutButton_u6sn')), findsWidgets);
   });
@@ -80,6 +77,45 @@ void main() async {
     await tester.tap(find.byKey(const ValueKey('attendButton_smsk')));
     await tester.pumpAndSettle(const Duration(milliseconds: 300));
     expect(find.text('Study Sessions'), findsOneWidget);
+  });
+
+  testWidgets('US1 Test', (WidgetTester tester) async {
+    _overrideOnError();
+
+    await tester.pumpWidget(ChangeNotifierProvider(
+      create: (context) => FFAppState(),
+      child: MyApp(
+        entryPage: LoginPageWidget(),
+      ),
+    ));
+    await GoogleFonts.pendingFonts();
+
+    await tester.tap(find.byKey(const ValueKey('LoginPage_dubz')));
+    await tester.pumpAndSettle(const Duration(milliseconds: 300));
+    await tester.enterText(find.text('Email...'), 'autotest123@uri.edu');
+    await tester.pumpAndSettle(const Duration(milliseconds: 10));
+    await tester.enterText(find.text('Password...'), 'password');
+    await tester.pumpAndSettle(const Duration(milliseconds: 10));
+    await tester.enterText(find.text('Repeat Password...'), 'password');
+    await tester.pumpAndSettle(const Duration(milliseconds: 10));
+    await tester.tap(find.text('SignUp'));
+    await tester.pumpAndSettle(const Duration(milliseconds: 400));
+    await tester.enterText(
+        find.byKey(const ValueKey('FullName_zn0k')), 'Tester Nam');
+    await tester.tap(find.byKey(const ValueKey('Major_ihwd')));
+    await tester.pumpAndSettle(const Duration(milliseconds: 200));
+    await tester.tap(find.text('Computer Science'));
+    await tester.pumpAndSettle(const Duration(milliseconds: 100));
+    await tester.tap(find.byKey(const ValueKey('AcademicStatus_ph1r')));
+    await tester.tap(find.text('Undergraduate'));
+    await tester.pumpAndSettle(const Duration(milliseconds: 100));
+    await tester.tap(find.byKey(const ValueKey('Year_h1af')));
+    await tester.pumpAndSettle(const Duration(milliseconds: 150));
+    await tester.tap(find.text('Freshman'));
+    await tester.pumpAndSettle(const Duration(milliseconds: 50));
+    await tester.tap(find.byKey(const ValueKey('Button_bvm3')));
+    await tester.pumpAndSettle(const Duration(milliseconds: 300));
+    expect(find.byKey(const ValueKey('Tab_wnge')), findsOneWidget);
   });
 }
 

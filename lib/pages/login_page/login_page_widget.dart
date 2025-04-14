@@ -82,6 +82,15 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                           ),
                         ),
                       ),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Image.asset(
+                          'assets/images/TempClasslinkTextLog.png',
+                          width: 200.0,
+                          height: 40.0,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                       Align(
                         alignment: AlignmentDirectional(0.0, 1.0),
                         child: Padding(

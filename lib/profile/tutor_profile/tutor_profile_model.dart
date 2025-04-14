@@ -1,5 +1,4 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import '/flutter_flow/form_field_controller.dart';
 import '/index.dart';
 import 'tutor_profile_widget.dart' show TutorProfileWidget;
 import 'package:flutter/material.dart';
@@ -7,14 +6,17 @@ import 'package:flutter/material.dart';
 class TutorProfileModel extends FlutterFlowModel<TutorProfileWidget> {
   ///  State fields for stateful widgets in this page.
 
-  // State field(s) for CourseTextField widget.
-  FocusNode? courseTextFieldFocusNode;
-  TextEditingController? courseTextFieldTextController;
+  // State field(s) for RemoteCheckbox widget.
+  bool? remoteCheckboxValue;
+  // State field(s) for hybridCheckbox widget.
+  bool? hybridCheckboxValue;
+  // State field(s) for In-PersonCheckbox widget.
+  bool? inPersonCheckboxValue;
+  // State field(s) for TeachingstyleTextField widget.
+  FocusNode? teachingstyleTextFieldFocusNode;
+  TextEditingController? teachingstyleTextFieldTextController;
   String? Function(BuildContext, String?)?
-      courseTextFieldTextControllerValidator;
-  // State field(s) for TeachingStyleDropDown widget.
-  String? teachingStyleDropDownValue;
-  FormFieldController<String>? teachingStyleDropDownValueController;
+      teachingstyleTextFieldTextControllerValidator;
   // State field(s) for descriptionTextField widget.
   FocusNode? descriptionTextFieldFocusNode;
   TextEditingController? descriptionTextFieldTextController;
@@ -24,34 +26,19 @@ class TutorProfileModel extends FlutterFlowModel<TutorProfileWidget> {
   FocusNode? rateTextFieldFocusNode;
   TextEditingController? rateTextFieldTextController;
   String? Function(BuildContext, String?)? rateTextFieldTextControllerValidator;
-  // State field(s) for Day widget.
-  FocusNode? dayFocusNode;
-  TextEditingController? dayTextController;
-  String? Function(BuildContext, String?)? dayTextControllerValidator;
-  // State field(s) for AvailabilityTextField widget.
-  FocusNode? availabilityTextFieldFocusNode;
-  TextEditingController? availabilityTextFieldTextController;
-  String? Function(BuildContext, String?)?
-      availabilityTextFieldTextControllerValidator;
 
   @override
   void initState(BuildContext context) {}
 
   @override
   void dispose() {
-    courseTextFieldFocusNode?.dispose();
-    courseTextFieldTextController?.dispose();
+    teachingstyleTextFieldFocusNode?.dispose();
+    teachingstyleTextFieldTextController?.dispose();
 
     descriptionTextFieldFocusNode?.dispose();
     descriptionTextFieldTextController?.dispose();
 
     rateTextFieldFocusNode?.dispose();
     rateTextFieldTextController?.dispose();
-
-    dayFocusNode?.dispose();
-    dayTextController?.dispose();
-
-    availabilityTextFieldFocusNode?.dispose();
-    availabilityTextFieldTextController?.dispose();
   }
 }

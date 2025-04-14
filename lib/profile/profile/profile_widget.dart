@@ -389,95 +389,143 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 150.0, 0.0, 0.0),
-                            child: FFButtonWidget(
-                              onPressed: () async {
-                                logFirebaseEvent(
-                                    'PROFILE_PAGE_UpdateAccountButton_ON_TAP');
-                                if ((valueOrDefault<bool>(
-                                            currentUserDocument?.tutorInterest,
-                                            false) !=
-                                        _model.tutorCheckboxValue) &&
-                                    _model.tutorCheckboxValue!) {
-                                  logFirebaseEvent(
-                                      'UpdateAccountButton_backend_call');
+                            child:
+                                StreamBuilder<List<DayTimeAvailabilityRecord>>(
+                              stream: queryDayTimeAvailabilityRecord(
+                                singleRecord: true,
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context).primary,
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                }
+                                List<DayTimeAvailabilityRecord>
+                                    updateAccountButtonDayTimeAvailabilityRecordList =
+                                    snapshot.data!;
+                                // Return an empty Container when the item does not exist.
+                                if (snapshot.data!.isEmpty) {
+                                  return Container();
+                                }
+                                final updateAccountButtonDayTimeAvailabilityRecord =
+                                    updateAccountButtonDayTimeAvailabilityRecordList
+                                            .isNotEmpty
+                                        ? updateAccountButtonDayTimeAvailabilityRecordList
+                                            .first
+                                        : null;
 
-                                  var tutorsRecordReference =
-                                      TutorsRecord.collection.doc();
-                                  await tutorsRecordReference
-                                      .set(createTutorsRecordData(
-                                    user: currentUserReference,
-                                    displayName: currentUserDisplayName,
-                                    major: valueOrDefault(
-                                        currentUserDocument?.major, ''),
-                                  ));
-                                  _model.tutorDoc =
-                                      TutorsRecord.getDocumentFromData(
-                                          createTutorsRecordData(
-                                            user: currentUserReference,
-                                            displayName: currentUserDisplayName,
-                                            major: valueOrDefault(
-                                                currentUserDocument?.major, ''),
-                                          ),
-                                          tutorsRecordReference);
-                                  logFirebaseEvent(
-                                      'UpdateAccountButton_backend_call');
+                                return FFButtonWidget(
+                                  onPressed: () async {
+                                    logFirebaseEvent(
+                                        'PROFILE_PAGE_UpdateAccountButton_ON_TAP');
+                                    if ((valueOrDefault<bool>(
+                                                currentUserDocument
+                                                    ?.tutorInterest,
+                                                false) !=
+                                            _model.tutorCheckboxValue) &&
+                                        _model.tutorCheckboxValue!) {
+                                      logFirebaseEvent(
+                                          'UpdateAccountButton_backend_call');
 
-                                  await ModalityRecord.createDoc(
-                                          _model.tutorDoc!.reference)
-                                      .set(createModalityRecordData(
-                                    remote: false,
-                                    hybrid: false,
-                                    inPerson: false,
-                                  ));
-                                } else {
-                                  if ((valueOrDefault<bool>(
-                                              currentUserDocument
-                                                  ?.tutorInterest,
-                                              false) !=
-                                          _model.tutorCheckboxValue) &&
-                                      !_model.tutorCheckboxValue!) {
+                                      var tutorsRecordReference =
+                                          TutorsRecord.collection.doc();
+                                      await tutorsRecordReference
+                                          .set(createTutorsRecordData(
+                                        user: currentUserReference,
+                                        displayName: currentUserDisplayName,
+                                        major: valueOrDefault(
+                                            currentUserDocument?.major, ''),
+                                      ));
+                                      _model.tutorDoc =
+                                          TutorsRecord.getDocumentFromData(
+                                              createTutorsRecordData(
+                                                user: currentUserReference,
+                                                displayName:
+                                                    currentUserDisplayName,
+                                                major: valueOrDefault(
+                                                    currentUserDocument?.major,
+                                                    ''),
+                                              ),
+                                              tutorsRecordReference);
+                                      logFirebaseEvent(
+                                          'UpdateAccountButton_backend_call');
+
+                                      await ModalityRecord.createDoc(
+                                              _model.tutorDoc!.reference)
+                                          .set(createModalityRecordData(
+                                        remote: false,
+                                        hybrid: false,
+                                        inPerson: false,
+                                      ));
+                                      logFirebaseEvent(
+                                          'UpdateAccountButton_backend_call');
+
+                                      await DayTimeAvailabilityRecord.createDoc(
+                                              profileTutorsRecord!.reference)
+                                          .set(
+                                              createDayTimeAvailabilityRecordData());
+                                    } else {
+                                      if ((valueOrDefault<bool>(
+                                                  currentUserDocument
+                                                      ?.tutorInterest,
+                                                  false) !=
+                                              _model.tutorCheckboxValue) &&
+                                          !_model.tutorCheckboxValue!) {
+                                        logFirebaseEvent(
+                                            'UpdateAccountButton_backend_call');
+                                        await profileTutorsRecord!.reference
+                                            .delete();
+                                      }
+                                    }
+
                                     logFirebaseEvent(
                                         'UpdateAccountButton_backend_call');
-                                    await profileTutorsRecord!.reference
-                                        .delete();
-                                  }
-                                }
 
-                                logFirebaseEvent(
-                                    'UpdateAccountButton_backend_call');
+                                    await currentUserReference!
+                                        .update(createUsersRecordData(
+                                      major: _model.majorPfValue,
+                                      academicStatus:
+                                          _model.academicStatusPFValue,
+                                      academicYear: _model.yearPFValue,
+                                      tutorInterest: _model.tutorCheckboxValue,
+                                    ));
+                                    logFirebaseEvent(
+                                        'UpdateAccountButton_navigate_to');
 
-                                await currentUserReference!
-                                    .update(createUsersRecordData(
-                                  major: _model.majorPfValue,
-                                  academicStatus: _model.academicStatusPFValue,
-                                  academicYear: _model.yearPFValue,
-                                  tutorInterest: _model.tutorCheckboxValue,
-                                ));
-                                logFirebaseEvent(
-                                    'UpdateAccountButton_navigate_to');
+                                    context.goNamed(ProfileTabWidget.routeName);
 
-                                context.goNamed(ProfileTabWidget.routeName);
-
-                                safeSetState(() {});
+                                    safeSetState(() {});
+                                  },
+                                  text: 'Update Account',
+                                  options: FFButtonOptions(
+                                    height: 50.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16.0, 0.0, 16.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Inter Tight',
+                                          color: Colors.white,
+                                          letterSpacing: 0.0,
+                                        ),
+                                    elevation: 0.0,
+                                    borderRadius: BorderRadius.circular(8.0),
+                                  ),
+                                );
                               },
-                              text: 'Update Account',
-                              options: FFButtonOptions(
-                                height: 50.0,
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    16.0, 0.0, 16.0, 0.0),
-                                iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
-                                color: FlutterFlowTheme.of(context).primary,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .titleSmall
-                                    .override(
-                                      fontFamily: 'Inter Tight',
-                                      color: Colors.white,
-                                      letterSpacing: 0.0,
-                                    ),
-                                elevation: 0.0,
-                                borderRadius: BorderRadius.circular(8.0),
-                              ),
                             ),
                           ),
                         ],

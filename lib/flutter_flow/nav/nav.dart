@@ -141,27 +141,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => ProfileWidget(),
         ),
         FFRoute(
-          name: ViewTutorProfileWidget.routeName,
-          path: ViewTutorProfileWidget.routePath,
-          asyncParams: {
-            'tutorDoc': getDoc(['tutors'], TutorsRecord.fromSnapshot),
-          },
-          builder: (context, params) => ViewTutorProfileWidget(
-            tutorDoc: params.getParam(
-              'tutorDoc',
-              ParamType.Document,
-            ),
-          ),
-        ),
-        FFRoute(
           name: MesageTempWidget.routeName,
           path: MesageTempWidget.routePath,
           builder: (context, params) => MesageTempWidget(),
-        ),
-        FFRoute(
-          name: ChatTempWidget.routeName,
-          path: ChatTempWidget.routePath,
-          builder: (context, params) => ChatTempWidget(),
         ),
         FFRoute(
           name: StudySessionsAttendingWidget.routeName,
@@ -174,11 +156,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => TutorProfileWidget(),
         ),
         FFRoute(
-          name: TutorProfileCopyWidget.routeName,
-          path: TutorProfileCopyWidget.routePath,
-          builder: (context, params) => TutorProfileCopyWidget(),
-        ),
-        FFRoute(
           name: StudySessionDetailsWidget.routeName,
           path: StudySessionDetailsWidget.routePath,
           asyncParams: {
@@ -188,6 +165,39 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => StudySessionDetailsWidget(
             studySeshDocRef: params.getParam(
               'studySeshDocRef',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: ViewTutorProfileTempWidget.routeName,
+          path: ViewTutorProfileTempWidget.routePath,
+          asyncParams: {
+            'tutorDoc': getDoc(['tutors'], TutorsRecord.fromSnapshot),
+            'availDoc': getDoc(['tutors', 'dayTimeAvailability'],
+                DayTimeAvailabilityRecord.fromSnapshot),
+          },
+          builder: (context, params) => ViewTutorProfileTempWidget(
+            tutorDoc: params.getParam(
+              'tutorDoc',
+              ParamType.Document,
+            ),
+            availDoc: params.getParam(
+              'availDoc',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: AvailabilityPageTempWidget.routeName,
+          path: AvailabilityPageTempWidget.routePath,
+          asyncParams: {
+            'availibiltyDoc': getDoc(['tutors', 'dayTimeAvailability'],
+                DayTimeAvailabilityRecord.fromSnapshot),
+          },
+          builder: (context, params) => AvailabilityPageTempWidget(
+            availibiltyDoc: params.getParam(
+              'availibiltyDoc',
               ParamType.Document,
             ),
           ),

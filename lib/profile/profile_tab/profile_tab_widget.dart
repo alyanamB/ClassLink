@@ -1,8 +1,10 @@
 import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/index.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'profile_tab_model.dart';
 export 'profile_tab_model.dart';
@@ -62,8 +64,8 @@ class _ProfileTabWidgetState extends State<ProfileTabWidget> {
                     child: FFButtonWidget(
                       onPressed: () async {
                         logFirebaseEvent(
-                            'PROFILE_TAB_PAGE_LogoutButton_ON_TAP');
-                        logFirebaseEvent('LogoutButton_navigate_to');
+                            'PROFILE_TAB_ManageProfileButton_ON_TAP');
+                        logFirebaseEvent('ManageProfileButton_navigate_to');
 
                         context.pushNamed(ProfileWidget.routeName);
                       },
@@ -93,8 +95,8 @@ class _ProfileTabWidgetState extends State<ProfileTabWidget> {
                     child: FFButtonWidget(
                       onPressed: () async {
                         logFirebaseEvent(
-                            'PROFILE_TAB_PAGE_LogoutButton_ON_TAP');
-                        logFirebaseEvent('LogoutButton_navigate_to');
+                            'PROFILE_TAB_MessageCenterButton_ON_TAP');
+                        logFirebaseEvent('MessageCenterButton_navigate_to');
 
                         context.pushNamed(MesageTempWidget.routeName);
                       },
@@ -124,12 +126,14 @@ class _ProfileTabWidgetState extends State<ProfileTabWidget> {
                     child: FFButtonWidget(
                       onPressed: () async {
                         logFirebaseEvent(
-                            'PROFILE_TAB_PAGE_LogoutButton_ON_TAP');
-                        logFirebaseEvent('LogoutButton_navigate_to');
+                            'PROFILE_TAB_StudySessionsAttendingButton');
+                        logFirebaseEvent(
+                            'StudySessionsAttendingButton_navigate_to');
 
                         context.goNamed(StudySessionsAttendingWidget.routeName);
 
-                        logFirebaseEvent('LogoutButton_google_analytics_event');
+                        logFirebaseEvent(
+                            'StudySessionsAttendingButton_google_anal');
                         logFirebaseEvent('view_attending_study_sessions');
                       },
                       text: 'Study Sessions Attending',
@@ -159,13 +163,48 @@ class _ProfileTabWidgetState extends State<ProfileTabWidget> {
                       alignment: AlignmentDirectional(0.0, 0.0),
                       child: AuthUserStreamWidget(
                         builder: (context) => FFButtonWidget(
-                          key: ValueKey('LogoutButton_aumg'),
+                          key: ValueKey('ManageTutorButton_aumg'),
                           onPressed: () async {
                             logFirebaseEvent(
-                                'PROFILE_TAB_PAGE_LogoutButton_ON_TAP');
-                            logFirebaseEvent('LogoutButton_navigate_to');
+                                'PROFILE_TAB_ManageTutorButton_ON_TAP');
+                            if (valueOrDefault<bool>(
+                                currentUserDocument?.tutorInterest, false)) {
+                              logFirebaseEvent(
+                                  'ManageTutorButton_firestore_query');
+                              _model.isTutorDoc = await queryTutorsRecordOnce(
+                                queryBuilder: (tutorsRecord) =>
+                                    tutorsRecord.where(
+                                  'user',
+                                  isEqualTo: currentUserReference,
+                                ),
+                                singleRecord: true,
+                              ).then((s) => s.firstOrNull);
+                              logFirebaseEvent(
+                                  'ManageTutorButton_firestore_query');
+                              _model.availTimeDocOutput =
+                                  await queryDayTimeAvailabilityRecordOnce(
+                                queryBuilder: (dayTimeAvailabilityRecord) =>
+                                    dayTimeAvailabilityRecord.where(
+                                  'tutorRef',
+                                  isEqualTo: _model.isTutorDoc?.reference,
+                                ),
+                                singleRecord: true,
+                              ).then((s) => s.firstOrNull);
+                              if (!(_model.availTimeDocOutput?.reference !=
+                                  null)) {
+                                logFirebaseEvent(
+                                    'ManageTutorButton_backend_call');
 
-                            context.pushNamed(TutorProfileCopyWidget.routeName);
+                                await DayTimeAvailabilityRecord.createDoc(
+                                        _model.isTutorDoc!.reference)
+                                    .set(createDayTimeAvailabilityRecordData());
+                              }
+                            }
+                            logFirebaseEvent('ManageTutorButton_navigate_to');
+
+                            context.pushNamed(TutorProfileWidget.routeName);
+
+                            safeSetState(() {});
                           },
                           text: 'Manage Tutor Account',
                           options: FFButtonOptions(

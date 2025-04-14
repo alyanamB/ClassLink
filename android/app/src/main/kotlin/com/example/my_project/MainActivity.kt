@@ -1,4 +1,4 @@
-package com.mycompany.classlink
+package com.uricsc305.classlink
 
 import io.flutter.embedding.android.FlutterActivity
 

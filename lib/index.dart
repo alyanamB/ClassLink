@@ -10,15 +10,14 @@ export '/study_sessions_pages/manage_sessions_page/manage_sessions_page_widget.d
 export '/study_sessions_pages/edit_session_page/edit_session_page_widget.dart'
     show EditSessionPageWidget;
 export '/profile/profile/profile_widget.dart' show ProfileWidget;
-export '/profile/view_tutor_profile/view_tutor_profile_widget.dart'
-    show ViewTutorProfileWidget;
 export '/profile/mesage_temp/mesage_temp_widget.dart' show MesageTempWidget;
-export '/profile/chat_temp/chat_temp_widget.dart' show ChatTempWidget;
 export '/profile/study_sessions_attending/study_sessions_attending_widget.dart'
     show StudySessionsAttendingWidget;
 export '/profile/tutor_profile/tutor_profile_widget.dart'
     show TutorProfileWidget;
-export '/profile/tutor_profile_copy/tutor_profile_copy_widget.dart'
-    show TutorProfileCopyWidget;
 export '/study_sessions_pages/study_session_details/study_session_details_widget.dart'
     show StudySessionDetailsWidget;
+export '/profile/view_tutor_profile_temp/view_tutor_profile_temp_widget.dart'
+    show ViewTutorProfileTempWidget;
+export '/availability_page_temp/availability_page_temp_widget.dart'
+    show AvailabilityPageTempWidget;

@@ -181,7 +181,7 @@ class _AddCourseListWidgetState extends State<AddCourseListWidget> {
                   text: 'Add',
                   icon: Icon(
                     Icons.post_add,
-                    color: FlutterFlowTheme.of(context).primaryBackground,
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
                     size: 35.0,
                   ),
                   options: FFButtonOptions(
@@ -195,7 +195,8 @@ class _AddCourseListWidgetState extends State<AddCourseListWidget> {
                     color: FlutterFlowTheme.of(context).primary,
                     textStyle: FlutterFlowTheme.of(context).titleLarge.override(
                           fontFamily: 'Inter Tight',
-                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
                           fontSize: 22.0,
                           letterSpacing: 0.0,
                         ),

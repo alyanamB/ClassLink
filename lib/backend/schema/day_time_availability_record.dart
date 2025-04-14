@@ -21,16 +21,34 @@ class DayTimeAvailabilityRecord extends FirestoreRecord {
   List<String> get day => _day ?? const [];
   bool hasDay() => _day != null;
 
-  // "times" field.
-  List<String>? _times;
-  List<String> get times => _times ?? const [];
-  bool hasTimes() => _times != null;
+  // "startTime" field.
+  List<DateTime>? _startTime;
+  List<DateTime> get startTime => _startTime ?? const [];
+  bool hasStartTime() => _startTime != null;
+
+  // "endTime" field.
+  List<DateTime>? _endTime;
+  List<DateTime> get endTime => _endTime ?? const [];
+  bool hasEndTime() => _endTime != null;
+
+  // "availableTime" field.
+  List<String>? _availableTime;
+  List<String> get availableTime => _availableTime ?? const [];
+  bool hasAvailableTime() => _availableTime != null;
+
+  // "tutorRef" field.
+  DocumentReference? _tutorRef;
+  DocumentReference? get tutorRef => _tutorRef;
+  bool hasTutorRef() => _tutorRef != null;
 
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
     _day = getDataList(snapshotData['day']);
-    _times = getDataList(snapshotData['times']);
+    _startTime = getDataList(snapshotData['startTime']);
+    _endTime = getDataList(snapshotData['endTime']);
+    _availableTime = getDataList(snapshotData['availableTime']);
+    _tutorRef = snapshotData['tutorRef'] as DocumentReference?;
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -73,9 +91,13 @@ class DayTimeAvailabilityRecord extends FirestoreRecord {
       reference.path.hashCode == other.reference.path.hashCode;
 }
 
-Map<String, dynamic> createDayTimeAvailabilityRecordData() {
+Map<String, dynamic> createDayTimeAvailabilityRecordData({
+  DocumentReference? tutorRef,
+}) {
   final firestoreData = mapToFirestore(
-    <String, dynamic>{}.withoutNulls,
+    <String, dynamic>{
+      'tutorRef': tutorRef,
+    }.withoutNulls,
   );
 
   return firestoreData;
@@ -89,12 +111,15 @@ class DayTimeAvailabilityRecordDocumentEquality
   bool equals(DayTimeAvailabilityRecord? e1, DayTimeAvailabilityRecord? e2) {
     const listEquality = ListEquality();
     return listEquality.equals(e1?.day, e2?.day) &&
-        listEquality.equals(e1?.times, e2?.times);
+        listEquality.equals(e1?.startTime, e2?.startTime) &&
+        listEquality.equals(e1?.endTime, e2?.endTime) &&
+        listEquality.equals(e1?.availableTime, e2?.availableTime) &&
+        e1?.tutorRef == e2?.tutorRef;
   }
 
   @override
-  int hash(DayTimeAvailabilityRecord? e) =>
-      const ListEquality().hash([e?.day, e?.times]);
+  int hash(DayTimeAvailabilityRecord? e) => const ListEquality()
+      .hash([e?.day, e?.startTime, e?.endTime, e?.availableTime, e?.tutorRef]);
 
   @override
   bool isValidKey(Object? o) => o is DayTimeAvailabilityRecord;

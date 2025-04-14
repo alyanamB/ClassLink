@@ -121,11 +121,10 @@ class _DeleteCourseListWidgetState extends State<DeleteCourseListWidget> {
                           .elementAtOrNull(widget.courseIndex!),
                       'Course',
                     ),
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                    style: FlutterFlowTheme.of(context).bodySmall.override(
                           fontFamily: 'Inter',
-                          fontSize: 25.0,
+                          fontSize: 16.0,
                           letterSpacing: 0.0,
-                          fontWeight: FontWeight.w500,
                           fontStyle: FontStyle.italic,
                         ),
                   ),
