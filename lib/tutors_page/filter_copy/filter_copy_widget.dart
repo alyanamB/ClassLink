@@ -1,4 +1,3 @@
-import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -168,39 +167,8 @@ class _FilterCopyWidgetState extends State<FilterCopyWidget> {
             alignment: AlignmentDirectional(0.0, 1.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
-                  child: FFButtonWidget(
-                    onPressed: () async {
-                      logFirebaseEvent('FILTER_COPY_COMP_ResetFilter_ON_TAP');
-                      logFirebaseEvent('ResetFilter_update_app_state');
-                      FFAppState().ssfilterMajor =
-                          valueOrDefault(currentUserDocument?.major, '');
-                      FFAppState().ssfilterCourseNum = '';
-                      FFAppState().ssfilterTime = '';
-                      _model.updatePage(() {});
-                    },
-                    text: 'Reset',
-                    options: FFButtonOptions(
-                      height: 40.0,
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                      iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).primary,
-                      textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Inter Tight',
-                                color: Colors.white,
-                                letterSpacing: 0.0,
-                              ),
-                      elevation: 0.0,
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                  ),
-                ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
                   child: FFButtonWidget(
@@ -212,14 +180,14 @@ class _FilterCopyWidgetState extends State<FilterCopyWidget> {
                           logFirebaseEvent('ApplyFilter_update_app_state');
                           FFAppState().ssfilterCourseNum =
                               FFAppState().tFilterCourseNum;
-                          _model.updatePage(() {});
+                          FFAppState().update(() {});
                         } else {
                           logFirebaseEvent('ApplyFilter_update_app_state');
                           FFAppState().ssfilterMajor =
                               FFAppState().tFilterMajor;
                           FFAppState().ssfilterCourseNum =
                               FFAppState().tFilterCourseNum;
-                          _model.updatePage(() {});
+                          safeSetState(() {});
                         }
 
                         logFirebaseEvent('ApplyFilter_bottom_sheet');

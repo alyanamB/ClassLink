@@ -203,6 +203,7 @@ class _ProfileTabWidgetState extends State<ProfileTabWidget> {
                           Align(
                             alignment: AlignmentDirectional(0.0, 1.0),
                             child: FFButtonWidget(
+                              key: ValueKey('LogoutButton_u6sn'),
                               onPressed: () async {
                                 logFirebaseEvent(
                                     'PROFILE_TAB_PAGE_LogoutButton_ON_TAP');

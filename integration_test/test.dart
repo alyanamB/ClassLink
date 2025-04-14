@@ -31,31 +31,34 @@ void main() async {
     await appState.initializePersistedState();
   });
 
-  testWidgets('Test Tutor Profile Data', (WidgetTester tester) async {
+  testWidgets('Test Tutor Data Saved', (WidgetTester tester) async {
     _overrideOnError();
     await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: 'test08@uri.edu', password: 'test08');
+        email: 'test09@uri.edu', password: 'test09');
     await tester.pumpWidget(ChangeNotifierProvider(
       create: (context) => FFAppState(),
       child: MyApp(
-        entryPage: TutorProfileWidget(),
+        entryPage: ProfileTabWidget(),
       ),
     ));
     await GoogleFonts.pendingFonts();
 
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
+    await tester.tap(find.byKey(const ValueKey('LogoutButton_aumg')));
+    await tester.pumpAndSettle(const Duration(milliseconds: 10000));
     await tester.enterText(
-        find.byKey(const ValueKey('CourseTextField_enob')), 'URI 101');
+        find.byKey(const ValueKey('CourseTextField_enob')), 'CSC 212');
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
     await tester.enterText(
         find.byKey(const ValueKey('descriptionTextField_15s7')),
-        'I can help you understand any lessons you are struggling with.');
+        'I can help you understand algorithms efficiently.');
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
     await tester.enterText(
         find.byKey(const ValueKey('RateTextField_ng69')), '10');
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
     await tester.tap(find.byKey(const ValueKey('updateTutorButton_i9a5')));
-    expect(find.byKey(const ValueKey('LogoutButton_aumg')), findsWidgets);
+    await tester.pumpAndSettle(const Duration(milliseconds: 10000));
+    expect(find.byKey(const ValueKey('LogoutButton_u6sn')), findsWidgets);
   });
 }
 

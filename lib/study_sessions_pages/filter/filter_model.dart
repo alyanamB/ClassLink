@@ -6,27 +6,28 @@ import 'package:flutter/material.dart';
 class FilterModel extends FlutterFlowModel<FilterWidget> {
   ///  State fields for stateful widgets in this component.
 
-  // State field(s) for Major widget.
-  String? majorValue;
-  FormFieldController<String>? majorValueController;
-  // State field(s) for CourseNumber widget.
-  FocusNode? courseNumberFocusNode;
-  TextEditingController? courseNumberTextController;
-  String? Function(BuildContext, String?)? courseNumberTextControllerValidator;
-  // State field(s) for Time widget.
-  FocusNode? timeFocusNode;
-  TextEditingController? timeTextController;
-  String? Function(BuildContext, String?)? timeTextControllerValidator;
+  // State field(s) for MajorOptBox widget.
+  String? majorOptBoxValue;
+  FormFieldController<String>? majorOptBoxValueController;
+  // State field(s) for CourseNumberOptBox widget.
+  FocusNode? courseNumberOptBoxFocusNode;
+  TextEditingController? courseNumberOptBoxTextController;
+  String? Function(BuildContext, String?)?
+      courseNumberOptBoxTextControllerValidator;
+  // State field(s) for TimeOptBox widget.
+  FocusNode? timeOptBoxFocusNode;
+  TextEditingController? timeOptBoxTextController;
+  String? Function(BuildContext, String?)? timeOptBoxTextControllerValidator;
 
   @override
   void initState(BuildContext context) {}
 
   @override
   void dispose() {
-    courseNumberFocusNode?.dispose();
-    courseNumberTextController?.dispose();
+    courseNumberOptBoxFocusNode?.dispose();
+    courseNumberOptBoxTextController?.dispose();
 
-    timeFocusNode?.dispose();
-    timeTextController?.dispose();
+    timeOptBoxFocusNode?.dispose();
+    timeOptBoxTextController?.dispose();
   }
 }

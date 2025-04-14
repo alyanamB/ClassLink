@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/nps/nps_widget.dart';
+import '/study_sessions_pages/filter/filter_widget.dart';
 import '/tutors_page/filter_copy/filter_copy_widget.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
@@ -335,9 +336,15 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       padding: MediaQuery
                                                           .viewInsetsOf(
                                                               context),
-                                                      child: FilterCopyWidget(
-                                                        fMajor: '',
-                                                        fCourseNum: '',
+                                                      child: FilterWidget(
+                                                        filterMajor:
+                                                            FFAppState()
+                                                                .ssfilterMajor,
+                                                        filterCourseNum:
+                                                            FFAppState()
+                                                                .ssfilterCourseNum,
+                                                        filterTime: FFAppState()
+                                                            .ssfilterTime,
                                                       ),
                                                     ),
                                                   );
