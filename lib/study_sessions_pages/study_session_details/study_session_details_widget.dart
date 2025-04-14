@@ -579,6 +579,7 @@ class _StudySessionDetailsWidgetState extends State<StudySessionDetailsWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 40.0),
                       child: FFButtonWidget(
+                        key: ValueKey('attendButton_smsk'),
                         onPressed: () async {
                           logFirebaseEvent(
                               'STUDY_SESSION_DETAILS_attendButton_ON_TA');

@@ -9,26 +9,26 @@
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "sesh_course_number",
-          "order": "ASCENDING"
-        },
-        {
           "fieldPath": "sesh_dateTime",
           "order": "DESCENDING"
         }
       ]
     },
     {
-      "collectionGroup": "tutors",
+      "collectionGroup": "study_sessions",
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "major",
+          "fieldPath": "sesh_course_major",
           "order": "ASCENDING"
         },
         {
-          "fieldPath": "courses",
-          "arrayConfig": "CONTAINS"
+          "fieldPath": "sesh_course_number",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "sesh_dateTime",
+          "order": "DESCENDING"
         }
       ]
     },

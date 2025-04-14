@@ -36,8 +36,9 @@ class _FilterCopyWidgetState extends State<FilterCopyWidget> {
     super.initState();
     _model = createModel(context, () => FilterCopyModel());
 
-    _model.courseNumberTextController ??= TextEditingController();
-    _model.courseNumberFocusNode ??= FocusNode();
+    _model.courseNumbertOptTextController ??=
+        TextEditingController(text: FFAppState().tFilterCourseNum);
+    _model.courseNumbertOptFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -65,8 +66,10 @@ class _FilterCopyWidgetState extends State<FilterCopyWidget> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           FlutterFlowDropDown<String>(
-            controller: _model.majorValueController ??=
-                FormFieldController<String>(null),
+            controller: _model.majortOptValueController ??=
+                FormFieldController<String>(
+              _model.majortOptValue ??= FFAppState().tFilterMajor,
+            ),
             options: [
               'Undecided',
               'Art',
@@ -81,7 +84,7 @@ class _FilterCopyWidgetState extends State<FilterCopyWidget> {
               'Spanish',
               'Other...'
             ],
-            onChanged: (val) => safeSetState(() => _model.majorValue = val),
+            onChanged: (val) => safeSetState(() => _model.majortOptValue = val),
             width: 200.0,
             height: 40.0,
             textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -108,8 +111,8 @@ class _FilterCopyWidgetState extends State<FilterCopyWidget> {
           Container(
             width: 200.0,
             child: TextFormField(
-              controller: _model.courseNumberTextController,
-              focusNode: _model.courseNumberFocusNode,
+              controller: _model.courseNumbertOptTextController,
+              focusNode: _model.courseNumbertOptFocusNode,
               autofocus: false,
               obscureText: false,
               decoration: InputDecoration(
@@ -159,62 +162,95 @@ class _FilterCopyWidgetState extends State<FilterCopyWidget> {
                     letterSpacing: 0.0,
                   ),
               cursorColor: FlutterFlowTheme.of(context).primaryText,
-              validator: _model.courseNumberTextControllerValidator
+              validator: _model.courseNumbertOptTextControllerValidator
                   .asValidator(context),
             ),
           ),
-          Align(
-            alignment: AlignmentDirectional(0.0, 1.0),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
-                  child: FFButtonWidget(
-                    onPressed: () async {
-                      logFirebaseEvent('FILTER_COPY_COMP_ApplyFilter_ON_TAP');
-                      if ((FFAppState().tFilterMajor != '') ||
-                          (FFAppState().tFilterCourseNum != '')) {
-                        if (widget.fMajor == null || widget.fMajor == '') {
-                          logFirebaseEvent('ApplyFilter_update_app_state');
-                          FFAppState().ssfilterCourseNum =
-                              FFAppState().tFilterCourseNum;
-                          FFAppState().update(() {});
-                        } else {
-                          logFirebaseEvent('ApplyFilter_update_app_state');
-                          FFAppState().ssfilterMajor =
-                              FFAppState().tFilterMajor;
-                          FFAppState().ssfilterCourseNum =
-                              FFAppState().tFilterCourseNum;
-                          safeSetState(() {});
-                        }
-
+          Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Flexible(
+                child: Align(
+                  alignment: AlignmentDirectional(0.0, 0.0),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        logFirebaseEvent('FILTER_COPY_COMP_ApplyFilter_ON_TAP');
+                        logFirebaseEvent('ApplyFilter_update_app_state');
+                        FFAppState().tFilterMajor = widget.fMajor!;
+                        FFAppState().tFilterCourseNum = '';
+                        _model.updatePage(() {});
                         logFirebaseEvent('ApplyFilter_bottom_sheet');
                         Navigator.pop(context);
-                      }
-                    },
-                    text: 'Apply Filter',
-                    options: FFButtonOptions(
-                      height: 40.0,
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                      iconPadding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                      color: FlutterFlowTheme.of(context).primary,
-                      textStyle:
-                          FlutterFlowTheme.of(context).titleSmall.override(
-                                fontFamily: 'Inter Tight',
-                                color: Colors.white,
-                                letterSpacing: 0.0,
-                              ),
-                      elevation: 0.0,
-                      borderRadius: BorderRadius.circular(8.0),
+                      },
+                      text: 'Reset',
+                      options: FFButtonOptions(
+                        height: 40.0,
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            16.0, 0.0, 16.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).primary,
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleSmall.override(
+                                  fontFamily: 'Inter Tight',
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                ),
+                        elevation: 0.0,
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
                     ),
                   ),
                 ),
-              ],
-            ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
+                child: FFButtonWidget(
+                  onPressed: () async {
+                    logFirebaseEvent('FILTER_COPY_COMP_ApplyFilter_ON_TAP');
+                    if ((FFAppState().tFilterMajor != '') ||
+                        (FFAppState().tFilterCourseNum != '')) {
+                      if (widget.fMajor == null || widget.fMajor == '') {
+                        logFirebaseEvent('ApplyFilter_update_app_state');
+                        FFAppState().tFilterCourseNum =
+                            _model.courseNumbertOptTextController.text;
+                        FFAppState().update(() {});
+                      } else {
+                        logFirebaseEvent('ApplyFilter_update_app_state');
+                        FFAppState().tFilterMajor = _model.majortOptValue!;
+                        FFAppState().tFilterCourseNum =
+                            _model.courseNumbertOptTextController.text;
+                        safeSetState(() {});
+                      }
+
+                      logFirebaseEvent('ApplyFilter_bottom_sheet');
+                      Navigator.pop(context);
+                    }
+                  },
+                  text: 'Apply Filter',
+                  options: FFButtonOptions(
+                    height: 40.0,
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                    iconPadding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                    color: FlutterFlowTheme.of(context).primary,
+                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                          fontFamily: 'Inter Tight',
+                          color: Colors.white,
+                          letterSpacing: 0.0,
+                        ),
+                    elevation: 0.0,
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),

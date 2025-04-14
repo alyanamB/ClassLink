@@ -5,11 +5,11 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
-import 'filter_model.dart';
-export 'filter_model.dart';
+import 'filter_study_sessions_model.dart';
+export 'filter_study_sessions_model.dart';
 
-class FilterWidget extends StatefulWidget {
-  const FilterWidget({
+class FilterStudySessionsWidget extends StatefulWidget {
+  const FilterStudySessionsWidget({
     super.key,
     required this.filterMajor,
     required this.filterCourseNum,
@@ -21,11 +21,12 @@ class FilterWidget extends StatefulWidget {
   final String? filterTime;
 
   @override
-  State<FilterWidget> createState() => _FilterWidgetState();
+  State<FilterStudySessionsWidget> createState() =>
+      _FilterStudySessionsWidgetState();
 }
 
-class _FilterWidgetState extends State<FilterWidget> {
-  late FilterModel _model;
+class _FilterStudySessionsWidgetState extends State<FilterStudySessionsWidget> {
+  late FilterStudySessionsModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -36,9 +37,10 @@ class _FilterWidgetState extends State<FilterWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => FilterModel());
+    _model = createModel(context, () => FilterStudySessionsModel());
 
-    _model.courseNumberOptBoxTextController ??= TextEditingController();
+    _model.courseNumberOptBoxTextController ??=
+        TextEditingController(text: widget.filterCourseNum);
     _model.courseNumberOptBoxFocusNode ??= FocusNode();
 
     _model.timeOptBoxTextController ??= TextEditingController();
@@ -69,7 +71,9 @@ class _FilterWidgetState extends State<FilterWidget> {
         children: [
           FlutterFlowDropDown<String>(
             controller: _model.majorOptBoxValueController ??=
-                FormFieldController<String>(null),
+                FormFieldController<String>(
+              _model.majorOptBoxValue ??= widget.filterMajor,
+            ),
             options: [
               'Undecided',
               'Art',
@@ -236,7 +240,8 @@ class _FilterWidgetState extends State<FilterWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      logFirebaseEvent('FILTER_COMP_ApplyFilter_ON_TAP');
+                      logFirebaseEvent(
+                          'FILTER_STUDY_SESSIONS_ApplyFilter_ON_TAP');
                       logFirebaseEvent('ApplyFilter_update_app_state');
                       FFAppState().ssfilterMajor =
                           valueOrDefault(currentUserDocument?.major, '');
@@ -269,7 +274,8 @@ class _FilterWidgetState extends State<FilterWidget> {
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
-                      logFirebaseEvent('FILTER_COMP_ApplyFilter_ON_TAP');
+                      logFirebaseEvent(
+                          'FILTER_STUDY_SESSIONS_ApplyFilter_ON_TAP');
                       if ((_model.majorOptBoxValue != null &&
                               _model.majorOptBoxValue != '') ||
                           (/* NOT RECOMMENDED */ _model

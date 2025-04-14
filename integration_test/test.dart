@@ -31,7 +31,7 @@ void main() async {
     await appState.initializePersistedState();
   });
 
-  testWidgets('Test Tutor Data Saved', (WidgetTester tester) async {
+  testWidgets('US3 Backend Management', (WidgetTester tester) async {
     _overrideOnError();
     await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: 'test09@uri.edu', password: 'test09');
@@ -59,6 +59,26 @@ void main() async {
     await tester.tap(find.byKey(const ValueKey('updateTutorButton_i9a5')));
     await tester.pumpAndSettle(const Duration(milliseconds: 10000));
     expect(find.byKey(const ValueKey('LogoutButton_u6sn')), findsWidgets);
+  });
+
+  testWidgets('goldenPathTest', (WidgetTester tester) async {
+    _overrideOnError();
+    await FirebaseAuth.instance
+        .signInWithEmailAndPassword(email: '1@uri.edu', password: 'password');
+    await tester.pumpWidget(ChangeNotifierProvider(
+      create: (context) => FFAppState(),
+      child: const MyApp(),
+    ));
+    await GoogleFonts.pendingFonts();
+
+    await tester.pumpAndSettle(const Duration(milliseconds: 300));
+    await tester.tap(find.byKey(const ValueKey('Tab_wnge')));
+    await tester.pumpAndSettle(const Duration(milliseconds: 300));
+    await tester.tap(find.byKey(const ValueKey('Column_lfxx')));
+    await tester.pumpAndSettle(const Duration(milliseconds: 300));
+    await tester.tap(find.byKey(const ValueKey('attendButton_smsk')));
+    await tester.pumpAndSettle(const Duration(milliseconds: 300));
+    expect(find.text('Study Sessions'), findsOneWidget);
   });
 }
 

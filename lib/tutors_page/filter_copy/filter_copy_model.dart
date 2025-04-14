@@ -6,20 +6,21 @@ import 'package:flutter/material.dart';
 class FilterCopyModel extends FlutterFlowModel<FilterCopyWidget> {
   ///  State fields for stateful widgets in this component.
 
-  // State field(s) for Major widget.
-  String? majorValue;
-  FormFieldController<String>? majorValueController;
-  // State field(s) for CourseNumber widget.
-  FocusNode? courseNumberFocusNode;
-  TextEditingController? courseNumberTextController;
-  String? Function(BuildContext, String?)? courseNumberTextControllerValidator;
+  // State field(s) for MajortOpt widget.
+  String? majortOptValue;
+  FormFieldController<String>? majortOptValueController;
+  // State field(s) for CourseNumbertOpt widget.
+  FocusNode? courseNumbertOptFocusNode;
+  TextEditingController? courseNumbertOptTextController;
+  String? Function(BuildContext, String?)?
+      courseNumbertOptTextControllerValidator;
 
   @override
   void initState(BuildContext context) {}
 
   @override
   void dispose() {
-    courseNumberFocusNode?.dispose();
-    courseNumberTextController?.dispose();
+    courseNumbertOptFocusNode?.dispose();
+    courseNumbertOptTextController?.dispose();
   }
 }

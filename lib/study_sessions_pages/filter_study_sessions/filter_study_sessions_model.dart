@@ -1,9 +1,10 @@
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
-import 'filter_widget.dart' show FilterWidget;
+import 'filter_study_sessions_widget.dart' show FilterStudySessionsWidget;
 import 'package:flutter/material.dart';
 
-class FilterModel extends FlutterFlowModel<FilterWidget> {
+class FilterStudySessionsModel
+    extends FlutterFlowModel<FilterStudySessionsWidget> {
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for MajorOptBox widget.
