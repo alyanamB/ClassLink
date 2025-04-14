@@ -1,0 +1,64 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "study_sessions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "sesh_course_major",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "sesh_dateTime",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "study_sessions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "sesh_course_major",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "sesh_course_number",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "sesh_dateTime",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "study_sessions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "user_creator",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "sesh_dateTime",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "study_sessions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "sesh_usersAttending",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "sesh_dateTime",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ]
+}

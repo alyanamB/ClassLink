@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "98704196713",
+    "project_id": "class-link-dhvi3s",
+    "storage_bucket": "class-link-dhvi3s.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:98704196713:android:9645490ce0ee2723ebcef8",
+        "android_client_info": {
+          "package_name": "com.mycompany.classlink"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtSnfw5vO2EVaLM9WRat-0MXlgNdNbqIg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
