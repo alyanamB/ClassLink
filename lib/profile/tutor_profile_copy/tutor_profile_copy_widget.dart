@@ -359,8 +359,8 @@ class _TutorProfileCopyWidgetState extends State<TutorProfileCopyWidget> {
                         child: FFButtonWidget(
                           onPressed: () async {
                             logFirebaseEvent(
-                                'TUTOR_PROFILE_COPY_ADD_COURSE_BTN_ON_TAP');
-                            logFirebaseEvent('Button_bottom_sheet');
+                                'TUTOR_PROFILE_COPY_addCourseButton_ON_TA');
+                            logFirebaseEvent('addCourseButton_bottom_sheet');
                             await showModalBottomSheet(
                               isScrollControlled: true,
                               backgroundColor: Colors.transparent,

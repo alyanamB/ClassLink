@@ -63,11 +63,12 @@ void main() async {
 
   testWidgets('goldenPathTest', (WidgetTester tester) async {
     _overrideOnError();
-    await FirebaseAuth.instance
-        .signInWithEmailAndPassword(email: '1@uri.edu', password: 'password');
+
     await tester.pumpWidget(ChangeNotifierProvider(
       create: (context) => FFAppState(),
-      child: const MyApp(),
+      child: MyApp(
+        entryPage: HomePageWidget(),
+      ),
     ));
     await GoogleFonts.pendingFonts();
 
