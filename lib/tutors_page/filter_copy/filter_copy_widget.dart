@@ -1,9 +1,11 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'filter_copy_model.dart';
 export 'filter_copy_model.dart';
 
@@ -50,6 +52,8 @@ class _FilterCopyWidgetState extends State<FilterCopyWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Container(
       width: 400.0,
       height: 400.0,
@@ -164,20 +168,63 @@ class _FilterCopyWidgetState extends State<FilterCopyWidget> {
             alignment: AlignmentDirectional(0.0, 1.0),
             child: Row(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(20.0, 0.0, 0.0, 0.0),
+                  child: FFButtonWidget(
+                    onPressed: () async {
+                      logFirebaseEvent('FILTER_COPY_COMP_ResetFilter_ON_TAP');
+                      logFirebaseEvent('ResetFilter_update_app_state');
+                      FFAppState().ssfilterMajor =
+                          valueOrDefault(currentUserDocument?.major, '');
+                      FFAppState().ssfilterCourseNum = '';
+                      FFAppState().ssfilterTime = '';
+                      _model.updatePage(() {});
+                    },
+                    text: 'Reset',
+                    options: FFButtonOptions(
+                      height: 40.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).primary,
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Inter Tight',
+                                color: Colors.white,
+                                letterSpacing: 0.0,
+                              ),
+                      elevation: 0.0,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                  ),
+                ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
                   child: FFButtonWidget(
                     onPressed: () async {
                       logFirebaseEvent('FILTER_COPY_COMP_ApplyFilter_ON_TAP');
-                      logFirebaseEvent('ApplyFilter_update_app_state');
-                      FFAppState().tFilterMajor = _model.majorValue!;
-                      FFAppState().tFilterCourseNum =
-                          _model.courseNumberTextController.text;
-                      _model.updatePage(() {});
-                      logFirebaseEvent('ApplyFilter_bottom_sheet');
-                      Navigator.pop(context);
+                      if ((FFAppState().tFilterMajor != '') ||
+                          (FFAppState().tFilterCourseNum != '')) {
+                        if (widget.fMajor == null || widget.fMajor == '') {
+                          logFirebaseEvent('ApplyFilter_update_app_state');
+                          FFAppState().ssfilterCourseNum =
+                              FFAppState().tFilterCourseNum;
+                          _model.updatePage(() {});
+                        } else {
+                          logFirebaseEvent('ApplyFilter_update_app_state');
+                          FFAppState().ssfilterMajor =
+                              FFAppState().tFilterMajor;
+                          FFAppState().ssfilterCourseNum =
+                              FFAppState().tFilterCourseNum;
+                          _model.updatePage(() {});
+                        }
+
+                        logFirebaseEvent('ApplyFilter_bottom_sheet');
+                        Navigator.pop(context);
+                      }
                     },
                     text: 'Apply Filter',
                     options: FFButtonOptions(

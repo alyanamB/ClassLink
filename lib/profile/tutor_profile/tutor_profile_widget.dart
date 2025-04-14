@@ -336,6 +336,7 @@ class _TutorProfileWidgetState extends State<TutorProfileWidget> {
                               return Container(
                                 width: 280.0,
                                 child: TextFormField(
+                                  key: ValueKey('CourseTextField_enob'),
                                   controller:
                                       _model.courseTextFieldTextController ??=
                                           TextEditingController(
@@ -549,6 +550,7 @@ class _TutorProfileWidgetState extends State<TutorProfileWidget> {
                       return Container(
                         width: 280.0,
                         child: TextFormField(
+                          key: ValueKey('descriptionTextField_15s7'),
                           controller:
                               _model.descriptionTextFieldTextController ??=
                                   TextEditingController(
@@ -653,6 +655,7 @@ class _TutorProfileWidgetState extends State<TutorProfileWidget> {
                             return Container(
                               width: 200.0,
                               child: TextFormField(
+                                key: ValueKey('RateTextField_ng69'),
                                 controller:
                                     _model.rateTextFieldTextController ??=
                                         TextEditingController(
@@ -747,6 +750,7 @@ class _TutorProfileWidgetState extends State<TutorProfileWidget> {
                                 : null;
 
                         return FFButtonWidget(
+                          key: ValueKey('updateTutorButton_i9a5'),
                           onPressed: () async {
                             logFirebaseEvent(
                                 'TUTOR_PROFILE_updateTutorButton_ON_TAP');

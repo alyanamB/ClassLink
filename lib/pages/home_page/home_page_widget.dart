@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/pages/nps/nps_widget.dart';
-import '/study_sessions_pages/filter/filter_widget.dart';
 import '/tutors_page/filter_copy/filter_copy_widget.dart';
 import '/index.dart';
 import 'package:flutter/material.dart';
@@ -336,15 +335,9 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                                       padding: MediaQuery
                                                           .viewInsetsOf(
                                                               context),
-                                                      child: FilterWidget(
-                                                        filterMajor:
-                                                            FFAppState()
-                                                                .ssfilterMajor,
-                                                        filterCourseNum:
-                                                            FFAppState()
-                                                                .ssfilterCourseNum,
-                                                        filterTime: FFAppState()
-                                                            .ssfilterTime,
+                                                      child: FilterCopyWidget(
+                                                        fMajor: '',
+                                                        fCourseNum: '',
                                                       ),
                                                     ),
                                                   );
@@ -394,6 +387,11 @@ class _HomePageWidgetState extends State<HomePageWidget>
                                               'sesh_dateTime',
                                               isGreaterThan:
                                                   getCurrentTimestamp,
+                                            )
+                                            .where(
+                                              'sesh_course_number',
+                                              isEqualTo: FFAppState()
+                                                  .ssfilterCourseNum,
                                             )
                                             .orderBy('sesh_dateTime',
                                                 descending: true),

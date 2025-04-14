@@ -9,6 +9,10 @@
           "order": "ASCENDING"
         },
         {
+          "fieldPath": "sesh_course_number",
+          "order": "ASCENDING"
+        },
+        {
           "fieldPath": "sesh_dateTime",
           "order": "DESCENDING"
         }
