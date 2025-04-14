@@ -8,6 +8,6 @@
   
 - US 3:
   
-- US 4: (https://docs.google.com/presentation/d/1gCjbaivWLsyFKjhsxxgSe_2ukSdAdT-xTRTzZSVQFXs/edit?usp=sharing) 
+- US 4: https://docs.google.com/presentation/d/1gCjbaivWLsyFKjhsxxgSe_2ukSdAdT-xTRTzZSVQFXs/edit?usp=sharing
   
 - US 5:
