@@ -90,7 +90,6 @@ void main() async {
     ));
     await GoogleFonts.pendingFonts();
 
-    await tester.tap(find.byKey(const ValueKey('LoginPage_dubz')));
     await tester.pumpAndSettle(const Duration(milliseconds: 300));
     await tester.enterText(find.text('Email...'), 'autotest123@uri.edu');
     await tester.pumpAndSettle(const Duration(milliseconds: 10));
