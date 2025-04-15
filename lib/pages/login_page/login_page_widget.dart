@@ -354,6 +354,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                         ),
                       ),
                       FFButtonWidget(
+                        key: ValueKey('SignupButton_wu9o'),
                         onPressed: () async {
                           logFirebaseEvent(
                               'LOGIN_PAGE_PAGE_SignupButton_ON_TAP');

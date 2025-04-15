@@ -90,19 +90,21 @@ void main() async {
     ));
     await GoogleFonts.pendingFonts();
 
+    await tester.pumpAndSettle(const Duration(milliseconds: 100));
+    await tester.tap(find.byKey(const ValueKey('SignupButton_wu9o')));
     await tester.pumpAndSettle(
       const Duration(milliseconds: 300),
       EnginePhase.sendSemanticsUpdate,
       const Duration(milliseconds: 100),
     );
-    await tester.enterText(find.text('Email...'), 'autotest123@uri.edu');
+    await tester.enterText(find.text('Enter Email...'), 'autotest123@uri.edu');
     FocusManager.instance.primaryFocus?.unfocus();
     await tester.pumpAndSettle(
       const Duration(milliseconds: 50),
       EnginePhase.sendSemanticsUpdate,
       const Duration(milliseconds: 100),
     );
-    await tester.enterText(find.text('Password...'), 'password');
+    await tester.enterText(find.text('Enter Password...'), 'password');
     FocusManager.instance.primaryFocus?.unfocus();
     await tester.pumpAndSettle(
       const Duration(milliseconds: 50),
