@@ -90,32 +90,78 @@ void main() async {
     ));
     await GoogleFonts.pendingFonts();
 
-    await tester.pumpAndSettle(const Duration(milliseconds: 300));
-    await tester.tap(find.byKey(const ValueKey('SignupButton_wu9o')));
-    await tester.pumpAndSettle(const Duration(milliseconds: 300));
-    await tester.enterText(find.text('Enter Email...'), 'autotest123@uri.edu');
-    await tester.pumpAndSettle(const Duration(milliseconds: 50));
-    await tester.enterText(find.text('Enter Password...'), 'password');
-    await tester.pumpAndSettle(const Duration(milliseconds: 50));
+    await tester.pumpAndSettle(
+      const Duration(milliseconds: 300),
+      EnginePhase.sendSemanticsUpdate,
+      const Duration(milliseconds: 100),
+    );
+    await tester.enterText(find.text('Email...'), 'autotest123@uri.edu');
+    FocusManager.instance.primaryFocus?.unfocus();
+    await tester.pumpAndSettle(
+      const Duration(milliseconds: 50),
+      EnginePhase.sendSemanticsUpdate,
+      const Duration(milliseconds: 100),
+    );
+    await tester.enterText(find.text('Password...'), 'password');
+    FocusManager.instance.primaryFocus?.unfocus();
+    await tester.pumpAndSettle(
+      const Duration(milliseconds: 50),
+      EnginePhase.sendSemanticsUpdate,
+      const Duration(milliseconds: 100),
+    );
     await tester.enterText(find.text('Repeat Password...'), 'password');
-    await tester.pumpAndSettle(const Duration(milliseconds: 50));
+    FocusManager.instance.primaryFocus?.unfocus();
+    await tester.pumpAndSettle(
+      const Duration(milliseconds: 50),
+      EnginePhase.sendSemanticsUpdate,
+      const Duration(milliseconds: 100),
+    );
     await tester.tap(find.text('SignUp'));
-    await tester.pumpAndSettle(const Duration(milliseconds: 400));
+    await tester.pumpAndSettle(
+      const Duration(milliseconds: 400),
+      EnginePhase.sendSemanticsUpdate,
+      const Duration(milliseconds: 100),
+    );
     await tester.enterText(
         find.byKey(const ValueKey('FullName_zn0k')), 'Tester Nam');
+    FocusManager.instance.primaryFocus?.unfocus();
     await tester.tap(find.byKey(const ValueKey('Major_ihwd')));
-    await tester.pumpAndSettle(const Duration(milliseconds: 200));
+    await tester.pumpAndSettle(
+      const Duration(milliseconds: 200),
+      EnginePhase.sendSemanticsUpdate,
+      const Duration(milliseconds: 100),
+    );
     await tester.tap(find.text('Computer Science'));
-    await tester.pumpAndSettle(const Duration(milliseconds: 100));
+    await tester.pumpAndSettle(
+      const Duration(milliseconds: 100),
+      EnginePhase.sendSemanticsUpdate,
+      const Duration(milliseconds: 100),
+    );
     await tester.tap(find.byKey(const ValueKey('AcademicStatus_ph1r')));
     await tester.tap(find.text('Undergraduate'));
-    await tester.pumpAndSettle(const Duration(milliseconds: 100));
+    await tester.pumpAndSettle(
+      const Duration(milliseconds: 100),
+      EnginePhase.sendSemanticsUpdate,
+      const Duration(milliseconds: 100),
+    );
     await tester.tap(find.byKey(const ValueKey('Year_h1af')));
-    await tester.pumpAndSettle(const Duration(milliseconds: 150));
+    await tester.pumpAndSettle(
+      const Duration(milliseconds: 150),
+      EnginePhase.sendSemanticsUpdate,
+      const Duration(milliseconds: 100),
+    );
     await tester.tap(find.text('Freshman'));
-    await tester.pumpAndSettle(const Duration(milliseconds: 50));
+    await tester.pumpAndSettle(
+      const Duration(milliseconds: 50),
+      EnginePhase.sendSemanticsUpdate,
+      const Duration(milliseconds: 100),
+    );
     await tester.tap(find.byKey(const ValueKey('Button_bvm3')));
-    await tester.pumpAndSettle(const Duration(milliseconds: 300));
+    await tester.pumpAndSettle(
+      const Duration(milliseconds: 300),
+      EnginePhase.sendSemanticsUpdate,
+      const Duration(milliseconds: 100),
+    );
     expect(find.byKey(const ValueKey('Tab_wnge')), findsOneWidget);
   });
 }
