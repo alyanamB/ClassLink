@@ -130,6 +130,7 @@ class _HomePageWidgetState extends State<HomePageWidget>
                       Align(
                         alignment: Alignment(0.0, 0),
                         child: FlutterFlowButtonTabBar(
+                          key: ValueKey('TabBar_cd46'),
                           useToggleButtonStyle: false,
                           labelStyle:
                               FlutterFlowTheme.of(context).titleMedium.override(

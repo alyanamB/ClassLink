@@ -132,6 +132,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               TextFormField(
+                                key: ValueKey('EmailTextField_swaw'),
                                 controller: _model.emailTextFieldTextController,
                                 focusNode: _model.emailTextFieldFocusNode,
                                 onChanged: (_) => EasyDebounce.debounce(
@@ -220,6 +221,7 @@ class _LoginPageWidgetState extends State<LoginPageWidget> {
                               Container(
                                 width: double.infinity,
                                 child: TextFormField(
+                                  key: ValueKey('PasswordTextField_g61v'),
                                   controller:
                                       _model.passwordTextFieldTextController,
                                   focusNode: _model.passwordTextFieldFocusNode,

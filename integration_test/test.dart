@@ -166,6 +166,24 @@ void main() async {
     );
     expect(find.byKey(const ValueKey('Tab_wnge')), findsOneWidget);
   });
+
+  testWidgets('US2 User Log In ', (WidgetTester tester) async {
+    _overrideOnError();
+
+    await tester.pumpWidget(ChangeNotifierProvider(
+      create: (context) => FFAppState(),
+      child: const MyApp(),
+    ));
+    await GoogleFonts.pendingFonts();
+
+    await tester.enterText(
+        find.byKey(const ValueKey('EmailTextField_swaw')), 'giotest@email.com');
+    await tester.enterText(
+        find.byKey(const ValueKey('PasswordTextField_g61v')), 'password');
+    await tester.tap(find.byKey(const ValueKey('LoginPage_dubz')));
+    await tester.pumpAndSettle(const Duration(milliseconds: 6000));
+    expect(find.byKey(const ValueKey('TabBar_cd46')), findsWidgets);
+  });
 }
 
 // There are certain types of errors that can happen during tests but
