@@ -121,7 +121,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                 fontFamily: 'Inter',
                                 letterSpacing: 0.0,
                               ),
-                      hintText: 'Email...',
+                      hintText: 'Enter Email...',
                       hintStyle:
                           FlutterFlowTheme.of(context).labelMedium.override(
                                 fontFamily: 'Inter',
@@ -199,7 +199,7 @@ class _SignUpWidgetState extends State<SignUpWidget> {
                                 fontFamily: 'Inter',
                                 letterSpacing: 0.0,
                               ),
-                      hintText: 'Password...',
+                      hintText: 'Enter Password...',
                       hintStyle:
                           FlutterFlowTheme.of(context).labelMedium.override(
                                 fontFamily: 'Inter',

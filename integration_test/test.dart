@@ -91,12 +91,14 @@ void main() async {
     await GoogleFonts.pendingFonts();
 
     await tester.pumpAndSettle(const Duration(milliseconds: 300));
-    await tester.enterText(find.text('Email...'), 'autotest123@uri.edu');
-    await tester.pumpAndSettle(const Duration(milliseconds: 10));
-    await tester.enterText(find.text('Password...'), 'password');
-    await tester.pumpAndSettle(const Duration(milliseconds: 10));
+    await tester.tap(find.byKey(const ValueKey('SignupButton_wu9o')));
+    await tester.pumpAndSettle(const Duration(milliseconds: 300));
+    await tester.enterText(find.text('Enter Email...'), 'autotest123@uri.edu');
+    await tester.pumpAndSettle(const Duration(milliseconds: 50));
+    await tester.enterText(find.text('Enter Password...'), 'password');
+    await tester.pumpAndSettle(const Duration(milliseconds: 50));
     await tester.enterText(find.text('Repeat Password...'), 'password');
-    await tester.pumpAndSettle(const Duration(milliseconds: 10));
+    await tester.pumpAndSettle(const Duration(milliseconds: 50));
     await tester.tap(find.text('SignUp'));
     await tester.pumpAndSettle(const Duration(milliseconds: 400));
     await tester.enterText(
