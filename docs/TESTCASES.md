@@ -4,7 +4,7 @@
 
 - US 1: https://docs.google.com/presentation/d/1AjdY1Ye-99jl34Qge3h7gMvPB2JqvkvSh69zegza474/edit?usp=sharing
   
-- US 2:
+- US 2: [User Login](https://docs.google.com/presentation/d/1nTUqH3gfPpduTxE3a2kd6xaBSQepGvL0RWL521FMwm4/edit?usp=sharing)
   
 - US 3:
   
