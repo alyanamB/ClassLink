@@ -70,6 +70,11 @@ class UsersRecord extends FirestoreRecord {
   bool get npsShown => _npsShown ?? false;
   bool hasNpsShown() => _npsShown != null;
 
+  // "tutorRef" field.
+  DocumentReference? _tutorRef;
+  DocumentReference? get tutorRef => _tutorRef;
+  bool hasTutorRef() => _tutorRef != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _displayName = snapshotData['display_name'] as String?;
@@ -82,6 +87,7 @@ class UsersRecord extends FirestoreRecord {
     _academicYear = snapshotData['academic_year'] as String?;
     _tutorInterest = snapshotData['tutor_interest'] as bool?;
     _npsShown = snapshotData['nps_shown'] as bool?;
+    _tutorRef = snapshotData['tutorRef'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -129,6 +135,7 @@ Map<String, dynamic> createUsersRecordData({
   String? academicYear,
   bool? tutorInterest,
   bool? npsShown,
+  DocumentReference? tutorRef,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -143,6 +150,7 @@ Map<String, dynamic> createUsersRecordData({
       'academic_year': academicYear,
       'tutor_interest': tutorInterest,
       'nps_shown': npsShown,
+      'tutorRef': tutorRef,
     }.withoutNulls,
   );
 
@@ -164,7 +172,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.academicStatus == e2?.academicStatus &&
         e1?.academicYear == e2?.academicYear &&
         e1?.tutorInterest == e2?.tutorInterest &&
-        e1?.npsShown == e2?.npsShown;
+        e1?.npsShown == e2?.npsShown &&
+        e1?.tutorRef == e2?.tutorRef;
   }
 
   @override
@@ -179,7 +188,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.academicStatus,
         e?.academicYear,
         e?.tutorInterest,
-        e?.npsShown
+        e?.npsShown,
+        e?.tutorRef
       ]);
 
   @override

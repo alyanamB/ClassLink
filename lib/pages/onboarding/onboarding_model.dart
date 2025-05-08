@@ -1,3 +1,4 @@
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/index.dart';
@@ -27,6 +28,8 @@ class OnboardingModel extends FlutterFlowModel<OnboardingWidget> {
   FormFieldController<String>? yearValueController;
   // State field(s) for tutorCheckbox widget.
   bool? tutorCheckboxValue;
+  // Stores action output result for [Backend Call - Create Document] action in Button widget.
+  TutorsRecord? createdTutor;
 
   @override
   void initState(BuildContext context) {}

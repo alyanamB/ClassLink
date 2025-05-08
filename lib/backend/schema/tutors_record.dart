@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -53,15 +52,15 @@ class TutorsRecord extends FirestoreRecord {
   String get displayName => _displayName ?? '';
   bool hasDisplayName() => _displayName != null;
 
-  // "availability" field.
-  List<String>? _availability;
-  List<String> get availability => _availability ?? const [];
-  bool hasAvailability() => _availability != null;
-
   // "teaching_style" field.
   String? _teachingStyle;
   String get teachingStyle => _teachingStyle ?? '';
   bool hasTeachingStyle() => _teachingStyle != null;
+
+  // "availability" field.
+  List<AvailabilityStruct>? _availability;
+  List<AvailabilityStruct> get availability => _availability ?? const [];
+  bool hasAvailability() => _availability != null;
 
   void _initializeFields() {
     _user = snapshotData['user'] as DocumentReference?;
@@ -71,8 +70,11 @@ class TutorsRecord extends FirestoreRecord {
     _major = snapshotData['major'] as String?;
     _photoUrl = snapshotData['photo_url'] as String?;
     _displayName = snapshotData['display_name'] as String?;
-    _availability = getDataList(snapshotData['availability']);
     _teachingStyle = snapshotData['teaching_style'] as String?;
+    _availability = getStructList(
+      snapshotData['availability'],
+      AvailabilityStruct.fromMap,
+    );
   }
 
   static CollectionReference get collection =>
@@ -145,8 +147,8 @@ class TutorsRecordDocumentEquality implements Equality<TutorsRecord> {
         e1?.major == e2?.major &&
         e1?.photoUrl == e2?.photoUrl &&
         e1?.displayName == e2?.displayName &&
-        listEquality.equals(e1?.availability, e2?.availability) &&
-        e1?.teachingStyle == e2?.teachingStyle;
+        e1?.teachingStyle == e2?.teachingStyle &&
+        listEquality.equals(e1?.availability, e2?.availability);
   }
 
   @override
@@ -158,8 +160,8 @@ class TutorsRecordDocumentEquality implements Equality<TutorsRecord> {
         e?.major,
         e?.photoUrl,
         e?.displayName,
-        e?.availability,
-        e?.teachingStyle
+        e?.teachingStyle,
+        e?.availability
       ]);
 
   @override

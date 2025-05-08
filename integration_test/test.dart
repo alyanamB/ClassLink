@@ -44,7 +44,7 @@ void main() async {
     await GoogleFonts.pendingFonts();
 
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
-    await tester.tap(find.byKey(const ValueKey('ManageTutorButton_aumg')));
+    await tester.tap(find.byKey(const ValueKey('UNDEFINED')));
     await tester.pumpAndSettle(const Duration(milliseconds: 10000));
     await tester.enterText(find.byKey(const ValueKey('UNDEFINED')), 'CSC 212');
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
@@ -55,7 +55,7 @@ void main() async {
     await tester.pumpAndSettle(const Duration(milliseconds: 5000));
     await tester.tap(find.byKey(const ValueKey('UNDEFINED')));
     await tester.pumpAndSettle(const Duration(milliseconds: 10000));
-    expect(find.byKey(const ValueKey('LogoutButton_u6sn')), findsWidgets);
+    expect(find.byKey(const ValueKey('UNDEFINED')), findsWidgets);
   });
 
   testWidgets('goldenPathTest', (WidgetTester tester) async {

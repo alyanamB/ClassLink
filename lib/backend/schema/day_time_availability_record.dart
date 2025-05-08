@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -21,16 +20,6 @@ class DayTimeAvailabilityRecord extends FirestoreRecord {
   List<String> get day => _day ?? const [];
   bool hasDay() => _day != null;
 
-  // "startTime" field.
-  List<DateTime>? _startTime;
-  List<DateTime> get startTime => _startTime ?? const [];
-  bool hasStartTime() => _startTime != null;
-
-  // "endTime" field.
-  List<DateTime>? _endTime;
-  List<DateTime> get endTime => _endTime ?? const [];
-  bool hasEndTime() => _endTime != null;
-
   // "availableTime" field.
   List<String>? _availableTime;
   List<String> get availableTime => _availableTime ?? const [];
@@ -45,8 +34,6 @@ class DayTimeAvailabilityRecord extends FirestoreRecord {
 
   void _initializeFields() {
     _day = getDataList(snapshotData['day']);
-    _startTime = getDataList(snapshotData['startTime']);
-    _endTime = getDataList(snapshotData['endTime']);
     _availableTime = getDataList(snapshotData['availableTime']);
     _tutorRef = snapshotData['tutorRef'] as DocumentReference?;
   }
@@ -111,15 +98,13 @@ class DayTimeAvailabilityRecordDocumentEquality
   bool equals(DayTimeAvailabilityRecord? e1, DayTimeAvailabilityRecord? e2) {
     const listEquality = ListEquality();
     return listEquality.equals(e1?.day, e2?.day) &&
-        listEquality.equals(e1?.startTime, e2?.startTime) &&
-        listEquality.equals(e1?.endTime, e2?.endTime) &&
         listEquality.equals(e1?.availableTime, e2?.availableTime) &&
         e1?.tutorRef == e2?.tutorRef;
   }
 
   @override
-  int hash(DayTimeAvailabilityRecord? e) => const ListEquality()
-      .hash([e?.day, e?.startTime, e?.endTime, e?.availableTime, e?.tutorRef]);
+  int hash(DayTimeAvailabilityRecord? e) =>
+      const ListEquality().hash([e?.day, e?.availableTime, e?.tutorRef]);
 
   @override
   bool isValidKey(Object? o) => o is DayTimeAvailabilityRecord;

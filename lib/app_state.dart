@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class FFAppState extends ChangeNotifier {
@@ -25,10 +27,6 @@ class FFAppState extends ChangeNotifier {
     });
     _safeInit(() {
       _ssfilterTime = prefs.getString('ff_ssfilterTime') ?? _ssfilterTime;
-    });
-    _safeInit(() {
-      _ssCourseAppState =
-          prefs.getString('ff_ssCourseAppState') ?? _ssCourseAppState;
     });
     _safeInit(() {
       _showOnboarding = prefs.getBool('ff_showOnboarding') ?? _showOnboarding;
@@ -77,7 +75,6 @@ class FFAppState extends ChangeNotifier {
   String get ssCourseAppState => _ssCourseAppState;
   set ssCourseAppState(String value) {
     _ssCourseAppState = value;
-    prefs.setString('ff_ssCourseAppState', value);
   }
 
   bool _showOnboarding = false;
@@ -113,6 +110,47 @@ class FFAppState extends ChangeNotifier {
   set tFilterCourseNum(String value) {
     _tFilterCourseNum = value;
     prefs.setString('ff_tFilterCourseNum', value);
+  }
+
+  String _frmnFilterMAJOR = '';
+  String get frmnFilterMAJOR => _frmnFilterMAJOR;
+  set frmnFilterMAJOR(String value) {
+    _frmnFilterMAJOR = value;
+  }
+
+  String _frmnFilterCOURSE = '';
+  String get frmnFilterCOURSE => _frmnFilterCOURSE;
+  set frmnFilterCOURSE(String value) {
+    _frmnFilterCOURSE = value;
+  }
+
+  List<AvailabilityStruct> _availability = [];
+  List<AvailabilityStruct> get availability => _availability;
+  set availability(List<AvailabilityStruct> value) {
+    _availability = value;
+  }
+
+  void addToAvailability(AvailabilityStruct value) {
+    availability.add(value);
+  }
+
+  void removeFromAvailability(AvailabilityStruct value) {
+    availability.remove(value);
+  }
+
+  void removeAtIndexFromAvailability(int index) {
+    availability.removeAt(index);
+  }
+
+  void updateAvailabilityAtIndex(
+    int index,
+    AvailabilityStruct Function(AvailabilityStruct) updateFn,
+  ) {
+    availability[index] = updateFn(_availability[index]);
+  }
+
+  void insertAtIndexInAvailability(int index, AvailabilityStruct value) {
+    availability.insert(index, value);
   }
 }
 

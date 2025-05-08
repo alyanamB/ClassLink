@@ -15,19 +15,47 @@ class CreateSessionPageModel extends FlutterFlowModel<CreateSessionPageWidget> {
   FocusNode? locationFocusNode;
   TextEditingController? locationTextController;
   String? Function(BuildContext, String?)? locationTextControllerValidator;
+  String? _locationTextControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Exact Location... is required';
+    }
+
+    return null;
+  }
+
   // State field(s) for seshTitle widget.
   FocusNode? seshTitleFocusNode;
   TextEditingController? seshTitleTextController;
   String? Function(BuildContext, String?)? seshTitleTextControllerValidator;
+  String? _seshTitleTextControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Session Title... is required';
+    }
+
+    return null;
+  }
+
   // State field(s) for seshDesc widget.
   FocusNode? seshDescFocusNode;
   TextEditingController? seshDescTextController;
   String? Function(BuildContext, String?)? seshDescTextControllerValidator;
+  String? _seshDescTextControllerValidator(BuildContext context, String? val) {
+    if (val == null || val.isEmpty) {
+      return 'Enter well defined descrption of what is going to happen... is required';
+    }
+
+    return null;
+  }
+
   // Stores action output result for [Validate Form] action in Button widget.
   bool? formValid;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    locationTextControllerValidator = _locationTextControllerValidator;
+    seshTitleTextControllerValidator = _seshTitleTextControllerValidator;
+    seshDescTextControllerValidator = _seshDescTextControllerValidator;
+  }
 
   @override
   void dispose() {
