@@ -5,26 +5,8 @@
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "sesh_course_major",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "sesh_dateTime",
-          "order": "DESCENDING"
-        }
-      ]
-    },
-    {
-      "collectionGroup": "study_sessions",
-      "queryScope": "COLLECTION",
-      "fields": [
-        {
-          "fieldPath": "sesh_course_major",
-          "order": "ASCENDING"
-        },
-        {
-          "fieldPath": "sesh_course_number",
-          "order": "ASCENDING"
+          "fieldPath": "sesh_usersAttending",
+          "arrayConfig": "CONTAINS"
         },
         {
           "fieldPath": "sesh_dateTime",
@@ -51,12 +33,116 @@
       "queryScope": "COLLECTION",
       "fields": [
         {
-          "fieldPath": "sesh_usersAttending",
-          "arrayConfig": "CONTAINS"
+          "fieldPath": "sesh_course_major",
+          "order": "ASCENDING"
         },
         {
           "fieldPath": "sesh_dateTime",
           "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "study_sessions",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "sesh_course_major",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "sesh_course_number",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "sesh_dateTime",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "tutors",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "courses",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "rate",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "chats",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "users",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "last_message_DT",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "chat_messages",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "chat_reference",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "sent_DT",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "forumns_chat",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "forumn_Ref",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "sent_DT",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "forumns",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "course_Major",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "courseNumber",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "last_message_DT",
+          "order": "DESCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": [
+    {
+      "collectionGroup": "dayTimeAvailability",
+      "fieldPath": "tutorRef",
+      "indexes": [
+        {
+          "order": "ASCENDING",
+          "queryScope": "COLLECTION_GROUP"
         }
       ]
     }

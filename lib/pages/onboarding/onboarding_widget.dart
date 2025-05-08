@@ -8,8 +8,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/upload_data.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import '/index.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'onboarding_model.dart';
 export 'onboarding_model.dart';
 
@@ -194,7 +196,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                         borderRadius: 100.0,
                                         borderWidth: 1.0,
                                         buttonSize: 40.0,
-                                        fillColor: Color(0xFFF4A261),
+                                        fillColor: FlutterFlowTheme.of(context)
+                                            .primary,
                                         icon: Icon(
                                           Icons.add,
                                           color: Color(0xFF050505),
@@ -214,20 +217,33 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                         Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
-                            Text(
-                              'Can\'t Change Your Name Later....',
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Inter',
-                                    color: Color(0x6F14181B),
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w300,
-                                  ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 5.0),
+                              child: Text(
+                                'Can\'t Change Your Name Later....',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FontWeight.w300,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
+                                      color: Color(0x6F14181B),
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w300,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                              ),
                             ),
                             Container(
                               width: 200.0,
                               child: TextFormField(
+                                key: ValueKey('FullName_zn0k'),
                                 controller: _model.fullNameTextController,
                                 focusNode: _model.fullNameFocusNode,
                                 autofocus: false,
@@ -238,15 +254,45 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                   labelStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
+                                        font: GoogleFonts.inter(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontStyle,
+                                        ),
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontStyle,
                                       ),
                                   alignLabelWithHint: false,
                                   hintStyle: FlutterFlowTheme.of(context)
                                       .labelMedium
                                       .override(
-                                        fontFamily: 'Inter',
+                                        font: GoogleFonts.inter(
+                                          fontWeight:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontWeight,
+                                          fontStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .labelMedium
+                                                  .fontStyle,
+                                        ),
                                         letterSpacing: 0.0,
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .labelMedium
+                                            .fontStyle,
                                       ),
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(
@@ -283,8 +329,21 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
-                                      fontFamily: 'Inter',
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .fontStyle,
+                                      ),
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
                                     ),
                                 keyboardType: TextInputType.name,
                                 cursorColor:
@@ -297,6 +356,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           ],
                         ),
                         FlutterFlowDropDown<String>(
+                          key: ValueKey('Major_ihwd'),
                           controller: _model.majorValueController ??=
                               FormFieldController<String>(null),
                           options: [
@@ -319,8 +379,21 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           height: 40.0,
                           textStyle:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Inter',
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                           hintText: 'Major...',
                           icon: Icon(
@@ -342,6 +415,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           isMultiSelect: false,
                         ),
                         FlutterFlowDropDown<String>(
+                          key: ValueKey('AcademicStatus_ph1r'),
                           controller: _model.academicStatusValueController ??=
                               FormFieldController<String>(null),
                           options: ['Undergraduate', 'Graduate', 'Alumni'],
@@ -351,8 +425,21 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           height: 40.0,
                           textStyle:
                               FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Inter',
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
                                   ),
                           hintText: 'Academic Status...',
                           icon: Icon(
@@ -375,6 +462,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                         ),
                         if (_model.academicStatusValue == '')
                           FlutterFlowDropDown<String>(
+                            key: ValueKey('Year_h1af'),
                             controller: _model.yearValueController ??=
                                 FormFieldController<String>(null),
                             options: [
@@ -390,8 +478,21 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                             textStyle: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
-                                  fontFamily: 'Inter',
+                                  font: GoogleFonts.inter(
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
                                   letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
                                 ),
                             hintText: 'Academic Year...',
                             icon: Icon(
@@ -423,9 +524,22 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                 style: FlutterFlowTheme.of(context)
                                     .titleSmall
                                     .override(
-                                      fontFamily: 'Inter Tight',
+                                      font: GoogleFonts.interTight(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .fontStyle,
+                                      ),
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
                                     ),
                               ),
                               Theme(
@@ -467,6 +581,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                         Align(
                           alignment: AlignmentDirectional(0.0, 0.0),
                           child: FFButtonWidget(
+                            key: ValueKey('Button_bvm3'),
                             onPressed: () async {
                               logFirebaseEvent(
                                   'ONBOARDING_PAGE_SIGN_UP_BTN_ON_TAP');
@@ -485,14 +600,58 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                   currentUserDocument?.tutorInterest, false)) {
                                 logFirebaseEvent('Button_backend_call');
 
-                                await TutorsRecord.collection
-                                    .doc()
-                                    .set(createTutorsRecordData(
-                                      user: currentUserReference,
-                                      displayName: currentUserDisplayName,
-                                      major: valueOrDefault(
-                                          currentUserDocument?.major, ''),
-                                    ));
+                                var tutorsRecordReference =
+                                    TutorsRecord.collection.doc();
+                                await tutorsRecordReference.set({
+                                  ...createTutorsRecordData(
+                                    user: currentUserReference,
+                                    displayName: currentUserDisplayName,
+                                    major: valueOrDefault(
+                                        currentUserDocument?.major, ''),
+                                    photoUrl: currentUserPhoto,
+                                  ),
+                                  ...mapToFirestore(
+                                    {
+                                      'availability':
+                                          getAvailabilityListFirestoreData(
+                                        functions.initialAvailability(),
+                                      ),
+                                    },
+                                  ),
+                                });
+                                _model.createdTutor =
+                                    TutorsRecord.getDocumentFromData({
+                                  ...createTutorsRecordData(
+                                    user: currentUserReference,
+                                    displayName: currentUserDisplayName,
+                                    major: valueOrDefault(
+                                        currentUserDocument?.major, ''),
+                                    photoUrl: currentUserPhoto,
+                                  ),
+                                  ...mapToFirestore(
+                                    {
+                                      'availability':
+                                          getAvailabilityListFirestoreData(
+                                        functions.initialAvailability(),
+                                      ),
+                                    },
+                                  ),
+                                }, tutorsRecordReference);
+                                logFirebaseEvent('Button_backend_call');
+
+                                await ModalityRecord.createDoc(
+                                        _model.createdTutor!.reference)
+                                    .set(createModalityRecordData(
+                                  remote: false,
+                                  hybrid: false,
+                                  inPerson: false,
+                                ));
+                                logFirebaseEvent('Button_backend_call');
+
+                                await currentUserReference!
+                                    .update(createUsersRecordData(
+                                  tutorRef: _model.createdTutor?.reference,
+                                ));
                               }
                               logFirebaseEvent('Button_update_app_state');
                               FFAppState().showOnboarding = false;
@@ -508,6 +667,8 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                   ),
                                 },
                               );
+
+                              safeSetState(() {});
                             },
                             text: 'SIGN UP',
                             options: FFButtonOptions(
@@ -521,9 +682,22 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                               textStyle: FlutterFlowTheme.of(context)
                                   .titleSmall
                                   .override(
-                                    fontFamily: 'Inter Tight',
+                                    font: GoogleFonts.interTight(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .fontStyle,
+                                    ),
                                     color: Colors.white,
                                     letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .fontStyle,
                                   ),
                               elevation: 0.0,
                               borderRadius: BorderRadius.circular(14.0),

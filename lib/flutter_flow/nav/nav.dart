@@ -90,9 +90,68 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
               : LoginPageWidget(),
         ),
         FFRoute(
+          name: AdPageWidget.routeName,
+          path: AdPageWidget.routePath,
+          builder: (context, params) => AdPageWidget(),
+        ),
+        FFRoute(
+          name: StudySessionsAttendingWidget.routeName,
+          path: StudySessionsAttendingWidget.routePath,
+          builder: (context, params) => StudySessionsAttendingWidget(),
+        ),
+        FFRoute(
+          name: CreateSessionPageWidget.routeName,
+          path: CreateSessionPageWidget.routePath,
+          builder: (context, params) => CreateSessionPageWidget(),
+        ),
+        FFRoute(
+          name: ManageSessionsPageWidget.routeName,
+          path: ManageSessionsPageWidget.routePath,
+          builder: (context, params) => ManageSessionsPageWidget(),
+        ),
+        FFRoute(
           name: LoginPageWidget.routeName,
           path: LoginPageWidget.routePath,
           builder: (context, params) => LoginPageWidget(),
+        ),
+        FFRoute(
+          name: StudySessionDetailsWidget.routeName,
+          path: StudySessionDetailsWidget.routePath,
+          asyncParams: {
+            'studySeshDocRef':
+                getDoc(['study_sessions'], StudySessionsRecord.fromSnapshot),
+          },
+          builder: (context, params) => StudySessionDetailsWidget(
+            studySeshDocRef: params.getParam(
+              'studySeshDocRef',
+              ParamType.Document,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: EditSessionPageWidget.routeName,
+          path: EditSessionPageWidget.routePath,
+          builder: (context, params) => EditSessionPageWidget(
+            sessionRef: params.getParam(
+              'sessionRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['study_sessions'],
+            ),
+          ),
+        ),
+        FFRoute(
+          name: AvailabilityWidget.routeName,
+          path: AvailabilityWidget.routePath,
+          asyncParams: {
+            'tutorDoc': getDoc(['tutors'], TutorsRecord.fromSnapshot),
+          },
+          builder: (context, params) => AvailabilityWidget(
+            tutorDoc: params.getParam(
+              'tutorDoc',
+              ParamType.Document,
+            ),
+          ),
         ),
         FFRoute(
           name: ProfileTabWidget.routeName,
@@ -114,31 +173,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => OnboardingWidget(),
         ),
         FFRoute(
-          name: CreateSessionPageWidget.routeName,
-          path: CreateSessionPageWidget.routePath,
-          builder: (context, params) => CreateSessionPageWidget(),
-        ),
-        FFRoute(
-          name: ManageSessionsPageWidget.routeName,
-          path: ManageSessionsPageWidget.routePath,
-          builder: (context, params) => ManageSessionsPageWidget(),
-        ),
-        FFRoute(
-          name: EditSessionPageWidget.routeName,
-          path: EditSessionPageWidget.routePath,
-          builder: (context, params) => EditSessionPageWidget(
-            sessionRef: params.getParam(
-              'sessionRef',
-              ParamType.DocumentReference,
-              isList: false,
-              collectionNamePath: ['study_sessions'],
-            ),
-          ),
-        ),
-        FFRoute(
           name: ProfileWidget.routeName,
           path: ProfileWidget.routePath,
           builder: (context, params) => ProfileWidget(),
+        ),
+        FFRoute(
+          name: MesageTempWidget.routeName,
+          path: MesageTempWidget.routePath,
+          builder: (context, params) => MesageTempWidget(),
         ),
         FFRoute(
           name: ViewTutorProfileWidget.routeName,
@@ -154,19 +196,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           ),
         ),
         FFRoute(
-          name: MesageTempWidget.routeName,
-          path: MesageTempWidget.routePath,
-          builder: (context, params) => MesageTempWidget(),
-        ),
-        FFRoute(
-          name: ChatTempWidget.routeName,
-          path: ChatTempWidget.routePath,
-          builder: (context, params) => ChatTempWidget(),
-        ),
-        FFRoute(
-          name: StudySessionsAttendingWidget.routeName,
-          path: StudySessionsAttendingWidget.routePath,
-          builder: (context, params) => StudySessionsAttendingWidget(),
+          name: ChatPageWidget.routeName,
+          path: ChatPageWidget.routePath,
+          builder: (context, params) => ChatPageWidget(
+            chatRef: params.getParam(
+              'chatRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['chats'],
+            ),
+          ),
         ),
         FFRoute(
           name: TutorProfileWidget.routeName,
@@ -174,23 +213,38 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
           builder: (context, params) => TutorProfileWidget(),
         ),
         FFRoute(
-          name: TutorProfileCopyWidget.routeName,
-          path: TutorProfileCopyWidget.routePath,
-          builder: (context, params) => TutorProfileCopyWidget(),
-        ),
-        FFRoute(
-          name: StudySessionDetailsWidget.routeName,
-          path: StudySessionDetailsWidget.routePath,
-          asyncParams: {
-            'studySeshDocRef':
-                getDoc(['study_sessions'], StudySessionsRecord.fromSnapshot),
-          },
-          builder: (context, params) => StudySessionDetailsWidget(
-            studySeshDocRef: params.getParam(
-              'studySeshDocRef',
-              ParamType.Document,
+          name: ForumnChatPageWidget.routeName,
+          path: ForumnChatPageWidget.routePath,
+          builder: (context, params) => ForumnChatPageWidget(
+            forumnRef: params.getParam(
+              'forumnRef',
+              ParamType.DocumentReference,
+              isList: false,
+              collectionNamePath: ['forumns'],
             ),
           ),
+        ),
+        FFRoute(
+          name: ForumnCREATEPageWidget.routeName,
+          path: ForumnCREATEPageWidget.routePath,
+          builder: (context, params) => ForumnCREATEPageWidget(),
+        ),
+        FFRoute(
+          name: ForumnsSearchWidget.routeName,
+          path: ForumnsSearchWidget.routePath,
+          builder: (context, params) => ForumnsSearchWidget(
+            passedMajor: params.getParam(
+              'passedMajor',
+              ParamType.String,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: ForumnsMainPageWidget.routeName,
+          path: ForumnsMainPageWidget.routePath,
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'forumns_mainPage')
+              : ForumnsMainPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -310,6 +364,7 @@ class FFParameters {
     ParamType type, {
     bool isList = false,
     List<String>? collectionNamePath,
+    StructBuilder<T>? structBuilder,
   }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
@@ -328,6 +383,7 @@ class FFParameters {
       type,
       isList,
       collectionNamePath: collectionNamePath,
+      structBuilder: structBuilder,
     );
   }
 }

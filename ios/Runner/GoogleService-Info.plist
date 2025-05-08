@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.mycompany.classlink</string>
+	<string>com.uricsc305.classlink</string>
 	<key>PROJECT_ID</key>
 	<string>class-link-dhvi3s</string>
 	<key>STORAGE_BUCKET</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:98704196713:ios:d9283b4dd27e120eebcef8</string>
+	<string>1:98704196713:ios:77e8c4e223337b71ebcef8</string>
 </dict>
 </plist>

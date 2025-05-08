@@ -17,6 +17,9 @@ void main() async {
   GoRouter.optionURLReflectsImperativeAPIs = true;
   usePathUrlStrategy();
 
+  final environmentValues = FFDevEnvironmentValues();
+  await environmentValues.initialize();
+
   await initFirebase();
 
   final appState = FFAppState(); // Initialize FFAppState
@@ -149,8 +152,9 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
-      'profileTab': ProfileTabWidget(),
+      'forumns_mainPage': ForumnsMainPageWidget(),
       'HomePage': HomePageWidget(),
+      'profileTab': ProfileTabWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -162,7 +166,7 @@ class _NavBarPageState extends State<NavBarPage> {
           _currentPage = null;
           _currentPageName = tabs.keys.toList()[i];
         }),
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: FlutterFlowTheme.of(context).alternate,
         selectedItemColor: FlutterFlowTheme.of(context).primary,
         unselectedItemColor: FlutterFlowTheme.of(context).secondaryText,
         showSelectedLabels: false,
@@ -171,10 +175,9 @@ class _NavBarPageState extends State<NavBarPage> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.person_2,
-              size: 22.0,
+              Icons.forum_outlined,
             ),
-            label: 'profile',
+            label: 'Forumns',
             tooltip: '',
           ),
           BottomNavigationBarItem(
@@ -183,6 +186,14 @@ class _NavBarPageState extends State<NavBarPage> {
               size: 22.0,
             ),
             label: 'Home',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.person_2,
+              size: 22.0,
+            ),
+            label: 'profile',
             tooltip: '',
           )
         ],
